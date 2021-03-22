@@ -9,14 +9,14 @@ export default {
   },
   
   head: {
-    title: 'examx',
+    title: 'Welcome to STEM Olympiad homepage by US Embassy & Robolab',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'STEAM Olympiad is olympiad organized by US Embassy & Robolab' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -25,7 +25,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/tidy.css','aos/dist/aos.css'
+    '~/assets/css/tidy.css','aos/dist/aos.css','slick-carousel/slick/slick.css',
+    'slick-carousel/slick/slick-theme.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -33,6 +34,7 @@ export default {
    { src:'@/plugins/aos.js', mode: 'client'},
    { src: '~plugins/notify.client', mode: 'client' },
    { src: '~plugins/notify.server', mode: 'server' },
+   { src: '~/plugins/slick', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

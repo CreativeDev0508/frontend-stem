@@ -16,18 +16,7 @@
                                     </div>
                                     <div class="info-content media-body">
                                         <h6 class="info-title">Email address</h6>
-                                        <p class="text">contact@mail.com</p>
-                                    </div>
-                                </div> <!-- single info -->
-                            </li>
-                            <li>
-                                <div class="single-info d-flex mt-25">
-                                    <div class="info-icon">
-                                        <i class="lni-phone-handset"></i>
-                                    </div>
-                                    <div class="info-content media-body">
-                                        <h6 class="info-title">Phone Number</h6>
-                                        <p class="text">123 456 789</p>
+                                        <p class="text">info@stemolympiadforgirls.org</p>
                                     </div>
                                 </div> <!-- single info -->
                             </li>
@@ -94,7 +83,7 @@
                 <div class="col-lg-12">
                     <div class="contact-map pt-130">
                         <div class="gmap_canvas">                            
-                            <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <iframe id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6169383523184!2d90.41977941544856!3d23.79665139292367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a93a0cd37b%3A0x5f6ad10e0e4200fe!2sUS%20Consulate!5e0!3m2!1sen!2sin!4v1616404341260!5m2!1sen!2sin" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div> <!-- contact map -->
                 </div>

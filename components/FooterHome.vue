@@ -10,7 +10,7 @@
                         <div class="col-lg-6">
                             <div class="footer-address mt-40">
                                 <h5 class="f-title">Venue Location</h5>
-                                <p class="text">10 - 21 MARCH, 2021 <br> OLYMPIAD MODE - ONLINE</p>
+                                <p class="text">9 - 10 APRIL, 2021 <br> OLYMPIAD MODE - ONLINE</p>
                                 <a class="contact-link" href="#">Contact Our Authority</a>
                             </div> <!-- footer address -->
                         </div>

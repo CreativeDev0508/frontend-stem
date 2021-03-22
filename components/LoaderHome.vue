@@ -23,7 +23,7 @@ export default {
   display: table;
   height: 100%;
   width: 100%;
-  background-color: rgb(97, 0, 187);
+  background-color: rgba(0, 143, 187, 0.61);
   z-index: 20;
 }
 .loader {

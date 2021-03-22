@@ -3,19 +3,21 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="about-image mt-50 floating">
-                        <img src="~assets/images/unc.png" alt="About">
+                    <div class="about-image mt-50 floating" data-aos="slide-right" data-aos-delay="50">
+                        <img src="~assets/logo/stem.png" alt="About">
                     </div> <!-- about image -->
                 </div>
                 <div class="col-lg-6">
                     <div class="about-content mt-45" data-aos="slide-left" data-aos-delay="50"
                         data-aos-duration="1000" data-aos-once="false" >
                         <div class="section-title">
-                            <h2 class="title">About The Olympiad</h2>
+                            <h2 class="title">The Future Starts With You!</h2>
                         </div> <!-- section title -->
 
-                        <p class="text mt-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. <br> <br> Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                        <p class="date"><span>15<sup>th</sup></span> March 2021</p>
+                        <p class="text mt-30">Welcome to the <b>STEM Olympiad</b> for Girls, a joint venture by The US Embassy and Robolab!
+                            Register now for a chance to carve your name into history and be recognized for your intellect!As we advance further along, the world only demands more innovators. Now is the time for you to step up and take the lead!
+                            </p>
+                        <p class="date"><span>9<sup>th</sup></span> April 2021</p>
                     </div> <!-- about content -->
                 </div>
             </div> <!-- row -->
@@ -23,3 +25,13 @@
     </section>
 
 </template>
+
+<style scoped>
+  .floating{
+      padding: 10px;
+  }
+  .floating img{
+      height: 300px;
+      width: 300px;
+  }
+</style>
