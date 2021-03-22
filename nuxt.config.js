@@ -5,7 +5,7 @@ export default {
     height: '5px'
   },
   env: {
-    strapiBaseUri: 'https://stembackend.herokuapp.com' //|| "http://localhost:1337"
+    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
   },
   
   head: {
@@ -56,7 +56,7 @@ export default {
   },
   axios: {
     // extra config e.g
-     baseURL:  'https://stembackend.herokuapp.com'// || "http://localhost:1337"
+     baseURL:  process.env.API_URL || "http://localhost:1337"
   },
   markdownit: {
     preset: 'default',
