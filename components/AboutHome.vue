@@ -38,7 +38,7 @@
       .floating{
       padding: none;
       margin: none;
-
-  } 
+      margin-left: 15px;
+     } 
   }
 </style>
