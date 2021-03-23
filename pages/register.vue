@@ -86,6 +86,10 @@ export default {
     
             if(res && res!=null && res.user!=null){
                 this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Registration for STEM Olympiad 2021 has been successful. Thanks!',duration: 15000, type:'success' })
+                setTimeout(function(){
+                  this.$router.push('/')
+                  }, 4000);
+                
                // this.sendMail(this.form.email)
             }
            this.loading=false

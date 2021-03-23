@@ -75,10 +75,10 @@ export default {
             });
     
             if(res && res!=null && res.user!=null){
-                this.$notify({ group: 'all', title:"SUCCESS!", text: 'Kindly Check Your Provided Email For Your Login Info! Thanks.',duration: 15000, type:'success' })
+                this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Registration for STEM Olympiad 2021 has been successful. Thanks!',duration: 15000, type:'success' })
+                 this.$emit('closeRmodal')
                 //this.sendMail(this.form.email)
             }
-            this.$emit('closeRmodal')
            this.$emit('stopLoader')
             this.btndisabled=false
            
