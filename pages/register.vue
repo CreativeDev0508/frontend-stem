@@ -22,13 +22,13 @@
         <label><input class="form-control shadow-none" required v-model="form.institution" type="text" placeholder="Institution/Office Name"/><span>Institution *</span></label>
         <label><input class="form-control shadow-none" v-model="form.membership" type="text" placeholder="American /EMK center membership ID number"/><span>MemberShip(Optional)</span></label>
         <select class="form-control shadow-none" required v-model="form.category">
-            <option disabled>Choose Category</option>
-            <option>Class 8 - 10</option>
-            <option>Class 10 - 12</option>
-            <option>Undergraduate</option>
+            <option value='' disabled>Choose Category</option>
+            <option value="Class 8 - 10">Class 8 - 10</option>
+            <option value="Class 10 - 12">Class 10 - 12</option>
+            <option value="Undergraduate">Undergraduate</option>
           </select>
         <div class="c_check">
-           <label for="z"> <p>Are You a Girl? </p><input type="checkbox" id="z" required/></label>
+           <label for="z"> <p>Are You a Female? </p><input type="checkbox" id="z" required/></label>
         </div>
         </div>
         <div class="f_footer"><button class="btn btn-primary" :disabled="btndisabled"> REGISTER</button></div>
@@ -57,7 +57,7 @@ export default {
           phone:null,
           institution:null,
           membership:null,
-          category:null,
+          category:'',
           password:null,
           class:null
 
@@ -116,12 +116,12 @@ export default {
   position: absolute;
  vertical-align: middle;
  margin-top: 5px;
- margin-left: 67%;
+ margin-left: 75%;
 }
 .c_check label p {
   position: absolute;
   vertical-align: middle;
   color: #000;
-  margin-left: 20%;
+  margin-left: 15%;
 }
 </style>
