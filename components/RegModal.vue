@@ -78,6 +78,7 @@ export default {
                 this.$notify({ group: 'all', title:"SUCCESS!", text: 'Kindly Check Your Provided Email For Your Login Info! Thanks.',duration: 15000, type:'success' })
                 //this.sendMail(this.form.email)
             }
+            this.$emit('closeRmodal')
            this.$emit('stopLoader')
             this.btndisabled=false
            
