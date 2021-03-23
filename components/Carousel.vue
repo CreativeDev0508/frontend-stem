@@ -69,13 +69,18 @@ export default {
 </script>
 
 <style>
+.img-wrapper{
+    padding: 10%;
+    text-align: center;
+}
+
 .carousel-wrapper {
   padding: 40px;
 }
 .img-wrapper img {
   margin: auto;
-  width: 100%;
-  height: 450px;
+  width: 400px;
+  height:400px;
   background-image: linear-gradient(gray 100%, transparent 0);
   -webkit-box-shadow: 0px 6px 21px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 6px 21px 3px rgba(0,0,0,0.75);
@@ -87,10 +92,7 @@ export default {
     margin-top: 25px;
     color: black;
 }
-.img-wrapper{
-    padding: 10%;
-    text-align: center;
-}
+
 .c_warp{
     margin-top: 20px;
     text-align: center;
@@ -103,17 +105,19 @@ export default {
    
     font-size: 50px;
 }
-  @media (max-width: 1050px) {
+  @media (max-width: 1250px) {
     .img-wrapper img{
-        height: 350px;
+        height: 285px;
+        width: 285px;
     }
     .img-wrapper{
-        padding: 10%;
+        padding: 8%;
+        margin: 5%;
         text-align: center;
         } 
     }
     .img-wrapper h5{
-        font-size: 17px;
+        font-size: 14px;
     }
 
   @media (max-width: 767px) {
@@ -122,7 +126,16 @@ export default {
     font-size: 30px;
    }
    .img-wrapper img{
-        height: 280px;
+        height: 250px;
+        width: 250px;
     }
+    .img-wrapper{
+        margin: 5%;
+        text-align: center;
+    } 
+     .img-wrapper h5{
+        font-size: 13px;
+    }
+    
   }
 </style>

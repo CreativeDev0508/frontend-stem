@@ -34,4 +34,11 @@
       height: 300px;
       width: 300px;
   }
+  @media (max-width: 767px) {
+      .floating{
+      padding: none;
+      margin: none;
+
+  } 
+  }
 </style>
