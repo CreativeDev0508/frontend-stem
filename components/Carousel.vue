@@ -79,8 +79,8 @@ export default {
 }
 .img-wrapper img {
   margin: auto;
-  width: 400px;
-  height:400px;
+  width: 320px;
+  height:320px;
   background-image: linear-gradient(gray 100%, transparent 0);
   -webkit-box-shadow: 0px 6px 21px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 6px 21px 3px rgba(0,0,0,0.75);
@@ -107,8 +107,8 @@ export default {
 }
   @media (max-width: 1250px) {
     .img-wrapper img{
-        height: 285px;
-        width: 285px;
+        height: 250px;
+        width: 250px;
     }
     .img-wrapper{
         padding: 8%;
@@ -126,8 +126,8 @@ export default {
     font-size: 30px;
    }
    .img-wrapper img{
-        height: 250px;
-        width: 250px;
+        height: 230px;
+        width: 230px;
     }
     .img-wrapper{
         margin: 5%;
