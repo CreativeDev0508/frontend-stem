@@ -24,7 +24,7 @@
         <select class="form-control shadow-none" required v-model="form.category">
             <option value='' disabled>Choose Category</option>
             <option value="Class 8 - 10">Class 8 - 10</option>
-            <option value="Class 10 - 12">Class 10 - 12</option>
+            <option value="Class 11 - 12">Class 11 - 12</option>
             <option value="Undergraduate">Undergraduate</option>
           </select>
         <div class="c_check">
