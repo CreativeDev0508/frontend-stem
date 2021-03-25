@@ -4,8 +4,8 @@
       <h1> <strong>No Set Gender</strong></h1>
     <client-only>
       <slick :options="slickOptions">
-        <div v-for="i in 5" :key="i" class="img-wrapper">
-          <img :src="require(`~/assets/images/${i}.jpg`)" />
+        <div v-for="i in 8" :key="i" class="img-wrapper">
+          <img :src="require(`~/assets/images/sliders/${i}.jpg`)" />
           <h5>{{bio[Number(i-1)]}}</h5>
         </div>
       </slick>
@@ -19,10 +19,13 @@ export default {
      
     return {
       bio:['Lillian Moller Gilbreth (May 24, 1878 – January 2, 1972) was an American psychologist and industrial engineer. Her long list of first times include being the first female engineering professor at Purdue, and the first woman elected to the National Academy of Engineering.',
+      'Susan McKinney-Steward (March 7, 1847 – March 17, 1918)  was the third black woman to earn a medical degree in the US. She found her calling in Medicine after her brother’s death in the Civil War and cholera epidemic that swept through NYC. Though the daughter of a wealthy pig farmer, she paid her own way through medical school by offering singing lessons.',
       'Edith Clarke (February 10, 1883 – October 29, 1959) was a pioneering electrical engineer in the early 20th century. Before the invention of modern day computers and calculators, she was someone who could perform difficult mathematical calculations without their aid.',
-      'Rosalind Franklin (July 25, 1920 – April 16, 1958) was a British chemist and crystallographer, best known for her research that was essential to explaining the structure of DNA. During her lifetime, she was not credited for her important role, but years later, she is now recognized as having provided a pivotal piece of the DNA story',
+      'Rosalind Franklin (July 25, 1920 – April 16, 1958) was a British chemist and crystallographer, best known for her research that was essential to explaining the structure of DNA. During her lifetime, she was not credited for her important role, but years later, she is now recognized as having provided a pivotal piece of the DNA story.',
+      'Aisha Bowe is a Bahamian-American aerospace engineer. Although discouraged by her guidance counselor, she decided to pursue a degree in aerospace engineering after which she winded up at NASA, where she worked as a mission engineer while mentoring students to take on STEM.',
       'Katherine Johnson (August 26, 1918 – February 24, 2020), an African-American space scientist and mathematician, has made enormous contributions to America’s aeronautics and space programs by her incorporation of computing tools. She played a huge role in calculating key trajectories.',
-      'Rachel Carson (May 27, 1907 – April 14, 1964) was a marine biologist and environmentalist – whose groundbreaking book, Silent Spring, has been credited as the catalyst for the modern environmental movement'],
+      'Rachel Carson (May 27, 1907 – April 14, 1964) was a marine biologist and environmentalist – whose groundbreaking book, Silent Spring, has been credited as the catalyst for the modern environmental movement',
+      'Aprille Ericsson-Jackson (April 1, 1963 – present) is no stranger to firsts. She was the first African American woman to receive a Ph.D. in mechanical engineering from Howard University and the first African-American woman to receive a Ph.D. in engineering from the NASA Goddard Space Flight Center. '],
       slickOptions: {
          slidesToShow: 3,
           slidesToScroll: 1,

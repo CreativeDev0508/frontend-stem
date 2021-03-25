@@ -10,7 +10,7 @@
             <div class="tab">
               <p class="ques" v-html="$md.render(questions[c_index].Question)"></p>
               <div class="img-container" v-if="questions[c_index].Image.length > 0">
-              <img class="img" src="../assets/images/1.jpg" alt=""/>
+              <img class="img" src="../assets/images/sliders/1.jpg" alt=""/>
               </div>
               <div v-for="val in o_values" :key="val">
               <label class="c_container">{{questions[c_index]['Option'+val]}}
