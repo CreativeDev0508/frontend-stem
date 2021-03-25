@@ -77,11 +77,9 @@
 
 <script>
   import CountdownHome from './CountdownHome'
-  import Slider from './Slider'
   export default {
     components: {
       CountdownHome,
-      Slider
     },
     props: {
       speed: {
