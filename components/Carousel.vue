@@ -95,7 +95,7 @@ export default {
 .img-wrapper i{
     margin-top: 25px;
     color: black;
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif; */
 }
 
 .c_warp{
