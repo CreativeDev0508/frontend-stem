@@ -66,6 +66,12 @@
 .lni-phone-handset:before {
   content: "\eac1";
 }
+.lni-youtube:before {
+  content: "\ea81";
+}
+.lni-world:before {
+  content: "\e973";
+}
 .lni-comment-alt:before {
   content: "\e99e";
 }
@@ -107,7 +113,8 @@ span{
 
 
 html,body{
-  font-family:'Poppins', sans-serif;
+  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
  
@@ -590,18 +597,16 @@ p {
   .header-countdown .single-count-content.count-color-4 .count,
   .header-countdown .single-count-content.count-color-4 .text {
     color: #8bc34a; }
-
-
       .navbar-brand .header-title {
-        font-size: 44px;
+        font-size: 42px;
         color: #fff;
          }
         @media only screen and (min-width: 992px) and (max-width: 1200px) {
           .navbar-brand .header-title {
-            font-size: 43px; } }
+            font-size: 41px; } }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .navbar-brand .header-title {
-            font-size: 41px; } }
+            font-size: 40px; } }
         @media (max-width: 767px) {
           .navbar-brand .header-title {
             font-size: 30px; } }
@@ -925,7 +930,7 @@ p {
     color: #fff;
     font-size: 16px; }
     .copyright .text a {
-      color: #fff; }
+      color: rgb(24, 236, 183); }
 
 
 .modal-content{
@@ -955,7 +960,7 @@ p {
   border-radius: 0;
   margin-bottom: 20px;
   padding-left: -50px!important;
-  border-bottom: 2px solid rgb(33, 228, 33);
+  border-bottom: 2px solid rgb(43, 40, 40);
   transition: all 0.2s ease-in-out;
 }
 .regform label input::placeholder {
@@ -1007,7 +1012,7 @@ p {
 .regform select{
   border: none;
   border-radius: 0;
-  border-bottom: 2px solid rgb(33, 228, 33);
+  border-bottom: 2px solid rgb(43, 40, 40);
 }
 .f_footer {
   text-align: center;

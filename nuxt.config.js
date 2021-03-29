@@ -9,7 +9,7 @@ export default {
   },
   
   head: {
-    title: 'Welcome to STEM Olympiad homepage by US Embassy & Robolab',
+    title: 'Welcome to STEM Olympiad homepage Organized by US Embassy Dhaka & Robolab',
     htmlAttrs: {
       lang: 'en'
     },
