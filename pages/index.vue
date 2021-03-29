@@ -17,7 +17,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">SIGN IN<br>
-                <p class="tmc">Enter Your Eleven Digit Phone Number & Password Received by Email.</p></h4>
+                <p class="tmc">Please Enter Your Registered Email & Password or <NuxtLink to="/register">Register Now!</NuxtLink></p></h4>
                 <img src="../assets/images/cancel.png" class="cancelbtn" @click="showModalS=false">
             </div>
             <form class="" action="">

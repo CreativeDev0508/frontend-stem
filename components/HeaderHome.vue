@@ -9,7 +9,6 @@
                 
                 <nav class="navbar navbar-expand-lg">
                   <a class="navbar-brand" href="index.html">
-                    <!-- <h2 class="header-title" style="color:white;">OLYMPIAD</h2> -->
                     <img src="../assets/logo/use-dhaka-seal-PNG.png" alt="" class="mainlogo">
                   </a>
 
@@ -52,16 +51,14 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-10">
+                <div class="header-content text-center">
+                 <h3 class="sub-title">APRIL 9 , 2021 . ONLINE EVENT</h3>
+                 </div>
                 <div>
                   <CountdownHome :starttime="new Date()" endtime="Apr 9 2021 00:29:29 GMT+0530"></CountdownHome>
                 </div>
-
                 <div class="header-content text-center">
                   <h2 class="header-title">{{displayText.join('')}}</h2>
-
-
-                  <h3 class="sub-title">9 APRIL, 2021 . ONLINE EVENT</h3>
-
                   <ul class="header-btn">
                     <li><a class="main-btn main-btn-2" @click="$emit('openReg')">Register Now</a></li>
                     <li><a class="main-btn" href="#about">Learn More</a></li>
@@ -98,7 +95,7 @@
     data() {
       return {
         show: false,
-        words: ["STEM OLYMPIAD 2021", "ORGANIZED BY US EMBASSY & ROBOLAB"],
+        words: ["STEM OLYMPIAD 2021", "ORGANIZED BY U.S. EMBASSY DHAKA & ROBOLAB"],
         displayText: [],
         currentWord: '',
         wordIdx: 0,

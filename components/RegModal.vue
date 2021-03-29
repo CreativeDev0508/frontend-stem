@@ -5,7 +5,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">REGISTRATION<br>
-            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank">Terms & Conditions!</a></p></h4>
+            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank"> <strong> Terms & Conditions!</strong></a></p></h4>
              <img src="../assets/images/cancel.png" class="cancelbtn" @click="$emit('closeRmodal')">
         </div>
       <form class="" @submit.prevent="registerSelf">

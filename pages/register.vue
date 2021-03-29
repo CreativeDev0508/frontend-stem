@@ -9,7 +9,7 @@
         <div class="modal-header">
             <h4 class="modal-title">EASY REGISTRATION<br>
             <h5 class=""> of <a href="/" >STEM Olympiad 2021</a> </h5>
-            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank">Terms & Conditions!</a></p></h4>
+            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank"> <strong> Terms & Conditions!</strong></a></p></h4>
         </div>
       <form class="" @submit.prevent="registerSelf">
         <div class="regform">

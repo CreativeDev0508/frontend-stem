@@ -17,7 +17,7 @@
                         <p class="text mt-30">Welcome to the <b>STEM Olympiad</b> for Girls, a joint venture by The US Embassy and Robolab!
                             Register now for a chance to carve your name into history and be recognized for your intellect!As we advance further along, the world only demands more innovators. Now is the time for you to step up and take the lead!
                             </p>
-                        <p class="date"><span>9<sup>th</sup></span> April 2021</p>
+                        <p class="date"> April 9 , 2021</p>
                     </div> <!-- about content -->
                 </div>
             </div> <!-- row -->
@@ -38,7 +38,7 @@
       .floating{
       padding: none;
       margin: none;
-      margin-left: 15px;
+      margin-left: 6%;
      } 
   }
 </style>
