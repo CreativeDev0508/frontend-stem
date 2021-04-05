@@ -52,7 +52,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-10">
                 <div class="header-content text-center">
-                 <h3 class="sub-title">APRIL 9 , 2021 . ONLINE EVENT</h3>
+                 <h3 class="sub-title">APRIL 16 , 2021 . ONLINE EVENT</h3>
                  </div>
                 <div>
                   <CountdownHome :starttime="new Date()" endtime="Apr 9 2021 00:29:29 GMT+0530"></CountdownHome>

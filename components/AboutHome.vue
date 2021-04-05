@@ -14,10 +14,9 @@
                             <h2 class="title">The Future Starts With You!</h2>
                         </div> <!-- section title -->
 
-                        <p class="text mt-30">Welcome to the <b>STEM Olympiad</b> for Girls, a joint venture by The US Embassy and Robolab!
-                            Register now for a chance to carve your name into history and be recognized for your intellect!As we advance further along, the world only demands more innovators. Now is the time for you to step up and take the lead!
+                        <p class="text mt-30">Welcome to the <b>STEM Olympiad</b> for Girls, a joint venture by The U.S. Embassy Dhaka and Robolab! Register now for a chance to carve your name into history and be recognized for your intellect! As we advance further along, the world only demands more innovators.  Now is the time for you to step up and take the lead!
                             </p>
-                        <p class="date"> April 9 , 2021</p>
+                        <p class="date"> Friday, April 16, 2021</p>
                     </div> <!-- about content -->
                 </div>
             </div> <!-- row -->

@@ -6,7 +6,7 @@
     <HeaderHome @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
    <Carousel></Carousel>
    <AboutHome></AboutHome>
-    
+    <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
 
    <RegModal v-if="showModalR" @closeRmodal='showModalR=false' @startLoader="loading=true" @stopLoader="loading=false"></RegModal>
@@ -57,6 +57,7 @@ import FooterHome from '../components/FooterHome'
 import LoaderHome from '../components/LoaderHome'
 import Carousel from '../components/Carousel'
 import RegModal from '../components/RegModal'
+import MackerSpace from '../components/MackerSpace'
 export default {
   components:{
       HeaderHome,
@@ -66,7 +67,8 @@ export default {
       FooterHome,
       LoaderHome,
       Carousel,
-      RegModal
+      RegModal,
+      MackerSpace,
   },
 
   data() {
