@@ -40,31 +40,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="name" placeholder="Your Name">
+                                        <input type="text" name="name" required placeholder="Your Name">
                                         <i class="lni-user"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="email" name="email" placeholder="Your Email">
+                                        <input type="email" name="email" required placeholder="Your Email">
                                         <i class="lni-envelope"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="subject" placeholder="Your Subject">
+                                        <input type="text" name="subject" required placeholder="Your Subject">
                                         <i class="lni-pencil-alt"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="number" placeholder="Phone Number">
+                                        <input type="text" name="number" required placeholder="Phone Number">
                                         <i class="lni-phone-handset"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-12">
                                     <div class="single-form">
-                                        <textarea name="message" placeholder="Your Message"></textarea>
+                                        <textarea name="message" required placeholder="Your Message"></textarea>
                                         <i class="lni-comment-alt"></i>
                                     </div> <!-- single form -->
                                 </div>
