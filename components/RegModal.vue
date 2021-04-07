@@ -30,7 +30,7 @@
            <label for="z"> <p><input type="checkbox" id="z" required/>   I Am a Girl. </p></label>
         </div>
           <div class="c_box box2">
-           <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded & streamed in social media. </p></label>
+           <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded &amp; streamed in social media. </p></label>
         </div>
         <div class="f_footer"><button class="btn btn-primary" :disabled="btndisabled"> REGISTER</button></div>
       </form>

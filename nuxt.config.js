@@ -9,14 +9,14 @@ export default {
   },
   
   head: {
-    title: 'Welcome to STEM Olympiad homepage Organized by US Embassy Dhaka & Robolab',
+    title: 'Welcome to STEM Olympiad Homepage Organized by U.S. Embassy Dhaka and Robolab',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'STEAM Olympiad is olympiad organized by US Embassy & Robolab' }
+      { hid: 'description', name: 'description', content: 'STEAM Olympiad is Organized by U.S. Embassy Dhaka and Robolab' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

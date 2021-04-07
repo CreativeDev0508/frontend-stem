@@ -9,7 +9,7 @@
         <div class="modal-header">
             <h4 class="modal-title">EASY REGISTRATION<br>
             <h5 class=""> of <a href="/" >STEM Olympiad 2021</a> </h5>
-            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank"> <strong> Terms & Conditions!</strong></a></p></h4>
+            <p class="tmc">Clicking Register Means You're Agreed To The <a href="/toc" target="_blank"> <strong> Terms &amp; Conditions!</strong></a></p></h4>
         </div>
       <form class="" @submit.prevent="registerSelf">
         <div class="regform">
@@ -32,7 +32,7 @@
            <label for="z"> <p><input type="checkbox" id="z" required/>   I Am a Girl. </p></label>
         </div>
           <div class="c_box box2">
-           <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded & streamed in social media. </p></label>
+           <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded &amp; streamed in social media. </p></label>
         </div>
         <div class="f_footer"><button class="btn btn-primary" :disabled="btndisabled"> REGISTER</button></div>
       </form>
