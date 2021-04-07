@@ -55,7 +55,7 @@
                  <h3 class="sub-title">APRIL 16 , 2021 . ONLINE EVENT</h3>
                  </div>
                 <div>
-                  <CountdownHome :starttime="new Date()" endtime="Apr 9 2021 00:29:29 GMT+0530"></CountdownHome>
+                  <CountdownHome :starttime="new Date()" endtime="Apr 16 2021 00:29:29 GMT+0530"></CountdownHome>
                 </div>
                 <div class="header-content text-center">
                   <h2 class="header-title">{{displayText.join('')}}</h2>
