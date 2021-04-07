@@ -20,16 +20,19 @@
         <label><input class="form-control shadow-none" required v-model="form.phone" type="phone" placeholder="Contact Number"/><span>Mobile *</span></label>
         <label><input class="form-control shadow-none" required v-model="form.class" type="text" title="Your current class which you are read in. example: class-10 " placeholder="Class (ex: class-8)"/><span>Class *</span></label>
         <label><input class="form-control shadow-none" required v-model="form.institution" type="text" placeholder="Institution/Office Name"/><span>Institution *</span></label>
-        <label><input class="form-control shadow-none" v-model="form.membership" type="text" placeholder="American /EMK center membership ID number"/><span>MemberShip(Optional)</span></label>
+        <label><input class="form-control shadow-none" v-model="form.membership" type="text" title="American /EMK center membership ID number" placeholder="(Optional) American /EMK center membership ID number"/><span>MemberShip(Optional)</span></label>
         <select class="form-control shadow-none" required v-model="form.category">
             <option value='' disabled>Choose Category</option>
             <option value="Class 8 - 10">Class 8 - 10</option>
             <option value="Class 11 - 12">Class 11 - 12</option>
             <option value="Undergraduate">Undergraduate</option>
           </select>
-        <div class="c_check">
-           <label for="z"> <p>Are You a Female? </p><input type="checkbox" id="z" required/></label>
         </div>
+          <div class="c_box box1">
+           <label for="z"> <p><input type="checkbox" id="z" required/>   I Am a Girl. </p></label>
+        </div>
+          <div class="c_box box2">
+           <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded & streamed in social media. </p></label>
         </div>
         <div class="f_footer"><button class="btn btn-primary" :disabled="btndisabled"> REGISTER</button></div>
       </form>
@@ -106,22 +109,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.c_check{
-  text-align: center;
-  padding: 5px;
-}
-.c_check input {
-  position: absolute;
- vertical-align: middle;
- margin-top: 5px;
- margin-left: 75%;
-}
-.c_check label p {
-  position: absolute;
-  vertical-align: middle;
-  color: #000;
-  margin-left: 15%;
-}
-</style>
