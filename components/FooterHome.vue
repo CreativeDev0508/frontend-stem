@@ -11,7 +11,7 @@
                             <div class="footer-address mt-40">
                                 <h5 class="f-title">Venue Location</h5>
                                 <p class="text">Friday, April 16, 2021 <br> OLYMPIAD MODE - ONLINE</p>
-                                <a class="contact-link" href="#">Contact Our Authority</a>
+                                <a class="contact-link" href="#contact">Contact Our Authority</a>
                             </div> <!-- footer address -->
                         </div>
                         <div class="col-lg-6">

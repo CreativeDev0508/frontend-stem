@@ -52,7 +52,7 @@ export default {
 
   ],
   strapi: {
-    entities: ['Questions','Students','Results']
+    entities: ['questions','students','results','messages']
   },
   axios: {
     // extra config e.g

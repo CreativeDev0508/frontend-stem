@@ -36,35 +36,35 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-form pt-20">
-                        <form id="contact-form" action="" method="post">
+                        <form id="contact-form" @submit.prevent="sendMessage">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="name" required placeholder="Your Name">
+                                        <input type="text" required v-model="msg.name" placeholder="Your Name">
                                         <i class="lni-user"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="email" name="email" required placeholder="Your Email">
+                                        <input type="email" v-model="msg.email" required placeholder="Your Email">
                                         <i class="lni-envelope"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="subject" required placeholder="Your Subject">
+                                        <input type="text" v-model="msg.subject" required placeholder="Your Subject">
                                         <i class="lni-pencil-alt"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-form">
-                                        <input type="text" name="number" required placeholder="Phone Number">
+                                        <input type="text" v-model="msg.phoneno" required placeholder="Phone Number">
                                         <i class="lni-phone-handset"></i>
                                     </div> <!-- single form -->
                                 </div>
                                 <div class="col-md-12">
                                     <div class="single-form">
-                                        <textarea name="message" required placeholder="Your Message"></textarea>
+                                        <textarea v-model="msg.message" required placeholder="Your Message"></textarea>
                                         <i class="lni-comment-alt"></i>
                                     </div> <!-- single form -->
                                 </div>
@@ -91,3 +91,36 @@
         </div> <!-- container -->
     </section>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+           msg:{ 
+            name:null,
+            email:null,
+            subject:null,
+            phoneno:null,
+            message:null
+           },
+           error:false
+        }
+    },
+    methods:{
+        sendMessage:async function(){
+            console.log(this.msg)
+            var res =await this.$strapi.$messages.create( this.msg )
+            .catch((err)=>{
+                 this.error = true
+                 this.$notify({ group: 'all', title:"Failed!", text:err ,duration: 5000, type:'error' })
+            });
+            console.log(res)
+            if(res && this.error!=true){
+                 this.$notify({ group: 'all', title:"SUCCESS!", text: 'Message Sent. We will contact you soon if necessary. Thanks!',duration: 15000, type:'success' })
+            }
+
+            
+        }
+    }
+}
+</script>

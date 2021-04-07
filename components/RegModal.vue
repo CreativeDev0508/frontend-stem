@@ -81,7 +81,7 @@ export default {
             if(res && res!=null && res.user!=null){
                 this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Registration for STEM Olympiad 2021 has been successful. Thanks!',duration: 15000, type:'success' })
                  this.$emit('closeRmodal')
-                //this.sendMail(this.form.email)
+                 this.sendMail(this.form.email)
             }
            this.$emit('stopLoader')
             this.btndisabled=false
@@ -89,11 +89,19 @@ export default {
             
       },
       sendMail(to){
-          this.$axios.$post('https://madmail.herokuapp.com/api/send', {
-             to:to,
-             subject:'STEM OLYMPIAD',
-             msg:'Your Registration for STEM-OLYMPIAD organized by US Embassy & Robolab has been successful! Thanks.'
+        try{
+            this.$axios.$post('https://madmailserver.herokuapp.com/api/send', {
+             mailOptions : {
+                  from: "STEM Olympiad 2021 <madmailserver@gmail.com>",
+                  to: to,
+                  subject: "STEM OLYMPIAD REGISTRATION",
+                  text: "Your Registration for STEM-OLYMPIAD organized by US Embassy & Robolab has been successful! Thanks."
+              }
             })
+        }
+        catch(err){
+          console.log(err)
+        }
       },
   },
 }
