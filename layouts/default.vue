@@ -1,10 +1,12 @@
-<template>
-<ClientOnly>
-  <div>
+<template >
+  <!-- <div oncontextmenu="return false"> -->
+    <div>
     <Nuxt />
-    <notifications position="top center" group="all" class="notify"/>
+    <ClientOnly>
+        <notifications position="top center" group="all" class="notify"/>
+    </ClientOnly>
   </div>
-   </ClientOnly>
+
 </template>
 
 <style>

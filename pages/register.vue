@@ -18,7 +18,7 @@
         <label><input class="form-control shadow-none" required v-model="form.email" type="email" placeholder="Email Address"/><span>Email *</span></label>
         <label><input class="form-control shadow-none" required v-model="form.password" type="password" placeholder="Password"/><span>Password *</span></label>
         <label><input class="form-control shadow-none" required v-model="form.phone" type="phone" placeholder="Contact Number"/><span>Mobile *</span></label>
-        <label><input class="form-control shadow-none" required v-model="form.class" type="text" title="Your current class which you are read in. example: class-10 " placeholder="Class (ex: class-8)"/><span>Class *</span></label>
+        <label><input class="form-control shadow-none" required v-model="form.class" type="text" title="Your current class which you are read in. example: class-10 " placeholder="Class (ex: class-8 or Undergraduate-1st year)"/><span>Class *</span></label>
         <label><input class="form-control shadow-none" required v-model="form.institution" type="text" placeholder="Institution/Office Name"/><span>Institution *</span></label>
         <label><input class="form-control shadow-none" v-model="form.membership" type="text" title="American /EMK center membership ID number" placeholder="(Optional) American /EMK center membership ID number"/><span>MemberShip(Optional)</span></label>
         <select class="form-control shadow-none" required v-model="form.category">
@@ -56,9 +56,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'STEAM Olympiad is Organized by U.S. Embassy Dhaka and Robolab. Register now!' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
     components:{
         LoaderHome
@@ -127,5 +124,6 @@ export default {
         }
       },
   },
+  middleware: 'authenticated',
 }
 </script>

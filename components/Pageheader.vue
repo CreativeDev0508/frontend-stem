@@ -1,12 +1,14 @@
 <template>
    <div class="examhead ">
         <h5 class="catname">CLASS 8 - 10</h5>
-        <h5 class="timer">10:45</h5>
+        <countdown-exam class="timer" end="Apr 10 2021 19:50:00" :onlyminutes="true"></countdown-exam>
     </div>
 </template>
 
 <script>
+import CountdownExam from './CountdownExam.vue'
 export default {
+  components: { CountdownExam },
 
 }
 </script>
@@ -30,8 +32,10 @@ export default {
 
 .timer,.catname{
     font-size: 1.5rem;
+     color: white;
 }
 .catname{
     padding-left: 0;
+   
 }
 </style>

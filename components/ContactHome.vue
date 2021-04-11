@@ -108,13 +108,11 @@ export default {
     },
     methods:{
         sendMessage:async function(){
-            console.log(this.msg)
             var res =await this.$strapi.$messages.create( this.msg )
             .catch((err)=>{
                  this.error = true
                  this.$notify({ group: 'all', title:"Failed!", text:err ,duration: 5000, type:'error' })
             });
-            console.log(res)
             if(res && this.error!=true){
                  this.$notify({ group: 'all', title:"SUCCESS!", text: 'Message Sent. We will contact you soon if necessary. Thanks!',duration: 15000, type:'success' })
             }

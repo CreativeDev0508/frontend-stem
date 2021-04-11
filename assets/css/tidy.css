@@ -93,6 +93,9 @@
 .lni-chevron-up:before {
   content: "\ea43";
 }
+.lni-cog:before {
+  content: "\e92d";
+}
 .lni-twitter-original:before {
   content: "\ea7b";
 }

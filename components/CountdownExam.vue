@@ -1,47 +1,36 @@
 <template>
-    <div >
-        <div class="header-countdown pt-70 d-flex justify-content-center">
-            <div class="single-count-content count-color-1">
-                <span class="count">{{ days | twoDigits }}</span><p class="text">Days</p>
-            </div>
-            <div class="single-count-content count-color-2">
-                <span class="count">{{hours | twoDigits}}</span><p class="text">Hours</p>
-            </div>
-            <div class="single-count-content count-color-3">
-                <span class="count">{{minutes | twoDigits}}</span><p class="text">Minutes</p>
-            </div>
-            <div class="single-count-content count-color-4">
-                 <span class="count">{{seconds | twoDigits}}</span><p class="text">Seconds</p>
-            </div>
-        </div>
-    </div>
+<div>
+    <div v-if="onlyminutes">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
+    
+</div>
 </template>
 <script>
 let interval = null;
 export default {
     props: {
-        deadline: {
-            type: String
-        },
-        end: {
-            type: String
-        },
         stop: {
             type: Boolean
+        },
+        end:{
+            type: String
+        },
+        onlyminutes:{
+            type: Boolean,
+            default:false
         }
     },
    data() {
         return {
             now: Math.trunc((new Date()).getTime() / 1000),
             date: null,
-            diff: 0
+            diff: 0,
         }
     },
    created() {
-        if (!this.deadline && !this.end) {
+        if (!this.end) {
             throw new Error("Missing props 'deadline' or 'end'");
         }
-        let endTime = this.deadline ? this.deadline : this.end;
+        let endTime = this.end;
         this.date = Math.trunc(Date.parse(endTime.replace(/-/g, "/")) / 1000);
         if (!this.date) {
             throw new Error("Invalid props value, correct the 'deadline' or 'end'");
@@ -70,6 +59,7 @@ export default {
             if(this.diff <= 0 || this.stop){
                 this.diff = 0;
                 // Remove interval
+                console.log('ok')
                 clearInterval(interval);
             }
         }

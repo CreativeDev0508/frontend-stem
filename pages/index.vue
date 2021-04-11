@@ -10,27 +10,8 @@
    <!-- <FeatureHome></FeatureHome> -->
 
    <RegModal v-if="showModalR" @closeRmodal='showModalR=false' @startLoader="loading=true" @stopLoader="loading=false"></RegModal>
-
-<transition name="fade">
-    <div v-if="showModalS" class="c_modal">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">SIGN IN<br>
-                <p class="tmc">Please Enter Your Registered Email & Password or <NuxtLink to="/register">Register Now!</NuxtLink></p></h4>
-                <img src="../assets/images/cancel.png" class="cancelbtn" @click="showModalS=false">
-            </div>
-            <form class="" action="">
-            <div class="regform">
-            <label><input class="form-control shadow-none" required type="email" placeholder="Email"/><span>Email *</span></label>
-            <label><input class="form-control shadow-none" required type="password" placeholder="Password"/><span>Password *</span></label>
-            </div>
-            <div class="f_footer"><button class="btn btn-primary" > Log In</button></div>
-            </form>
-        </div>
-        </div>
-    </div>  
-</transition>
+  
+  <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @startLoader="loading=true" @stopLoader="loading=false"></LoginHome>
 
 <ContactHome></ContactHome>
 
@@ -58,6 +39,7 @@ import LoaderHome from '../components/LoaderHome'
 import Carousel from '../components/Carousel'
 import RegModal from '../components/RegModal'
 import MackerSpace from '../components/MackerSpace'
+import LoginHome from '../components/LoginHome'
 export default {
   components:{
       HeaderHome,
@@ -69,6 +51,7 @@ export default {
       Carousel,
       RegModal,
       MackerSpace,
+      LoginHome,
   },
 
   data() {

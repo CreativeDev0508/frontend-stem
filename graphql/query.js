@@ -3,6 +3,7 @@ export const quesQuery=`
 query quesQuery {
     questions{
       id
+      quesid
       Question
       Answer
       OptionA
