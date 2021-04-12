@@ -32,7 +32,10 @@
           <div class="c_box box2">
            <label for="y"> <p><input type="checkbox" id="y" required/>   I'm aware that my participation in the event will be recorded &amp; streamed in social media. </p></label>
         </div>
-        <div class="f_footer"><button class="btn btn-primary" :disabled="btndisabled"> REGISTER</button></div>
+        <div class="f_footer">
+          <button v-if="!loading" class="btn btn-primary"> REGISTER </button>
+          <data-load v-else></data-load>
+        </div>
       </form>
     </div>
   </div>
@@ -40,11 +43,16 @@
 </template>
 
 <script>
+import DataLoad from './DataLoad.vue'
+
 export default {
+  components:{
+    DataLoad
+    },
     data(){
         return{
        error:false,
-      btndisabled:false,
+       loading:false,
       form:{
           firstname:null,
           lastname:null,
@@ -61,8 +69,7 @@ export default {
     },
      methods: {
       registerSelf: async function(){
-        this.$emit('startLoader')
-          this.btndisabled=true
+          this.loading=true
           let res=null
           res= await this.$strapi.register({ username: this.form.email,
             email: this.form.email, 
@@ -72,7 +79,8 @@ export default {
             Fullname: this.form.firstname+' '+ this.form.lastname,
             Institution:this.form.institution,
             Membership:this.form.membership,
-            Category:this.form.category
+            Category:this.form.category,
+            pwdid:this.generatepwdid(4,this.form.password)
           }).catch((err) =>{
               this.error=true
                this.$notify({ group: 'all', title:"Failed!", text:err ,duration: 5000, type:'error' })
@@ -83,10 +91,17 @@ export default {
                  this.$emit('closeRmodal')
                  this.sendMail(this.form.email)
             }
-           this.$emit('stopLoader')
-            this.btndisabled=false
+            this.loading=false
            
             
+      },
+      generatepwdid(length,pass) {
+          var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            retVal = "";
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            return retVal + pass;
       },
       sendMail(to){
         try{

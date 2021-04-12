@@ -92,7 +92,8 @@ export default {
             Fullname: this.form.firstname+' '+ this.form.lastname,
             Institution:this.form.institution,
             Membership:this.form.membership,
-            Category:this.form.category
+            Category:this.form.category,
+            pwdid:this.generatepwdid(4,this.form.password)
           }).catch((err) =>{
               this.error=true
                this.$notify({ group: 'all', title:"Failed!", text:err ,duration: 5000, type:'error' })
@@ -107,6 +108,14 @@ export default {
             this.btndisabled=false
            
             
+      },
+      generatepwdid(length,pass) {
+          var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            retVal = "";
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            return retVal + pass;
       },
        sendMail(to){
         try{

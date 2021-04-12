@@ -1,7 +1,7 @@
 <template>
    <div class="examhead ">
         <h5 class="catname">CLASS 8 - 10</h5>
-        <countdown-exam class="timer" end="Apr 10 2021 19:50:00" :onlyminutes="true"></countdown-exam>
+        <countdown-exam @finished="$emit('timeup')" class="timer" end="Apr 12 2021 10:45:40" :onlyminutes="true"></countdown-exam>
     </div>
 </template>
 

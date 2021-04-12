@@ -1027,4 +1027,13 @@ p {
   border-bottom-right-radius: 30px;
   overflow: hidden;
 }
+.cancelbtn{
+  top:0;
+  right: 0;
+  float: right;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
 

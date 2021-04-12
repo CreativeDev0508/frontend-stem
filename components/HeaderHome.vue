@@ -32,13 +32,15 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" @click="$emit('openSign')" style="cursor:pointer;">Sign In</a>
+                        <a class="page-scroll" v-if="!$strapi.user" @click="$emit('openSign')" style="cursor:pointer;">Sign In</a>
+                        <a v-else @click="$strapi.logout()" style="cursor:pointer;">Signout</a>
                       </li>
                     </ul>
                   </div>
                   <div class="navbar-btn d-none d-sm-inline-block">
                      <img src="../assets/logo/robolab logo.png" alt="" class="robologo">
-                     <a class="main-btn" @click="$emit('openReg')">Register Now</a>
+                     <a v-if="!$strapi.user" class="main-btn" @click="$emit('openReg')">Register Now</a>
+                     <NuxtLink v-else class="main-btn" to="/profile">Profile</NuxtLink>
                   </div>
                 </nav> <!-- navbar -->
               </div>

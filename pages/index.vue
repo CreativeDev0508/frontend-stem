@@ -9,9 +9,9 @@
     <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
 
-   <RegModal v-if="showModalR" @closeRmodal='showModalR=false' @startLoader="loading=true" @stopLoader="loading=false"></RegModal>
+   <RegModal v-if="showModalR" @closeRmodal='showModalR=false'></RegModal>
   
-  <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @startLoader="loading=true" @stopLoader="loading=false"></LoginHome>
+  <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
 
 <ContactHome></ContactHome>
 
@@ -35,7 +35,6 @@ import FeatureHome from '../components/FeatureHome'
 import AboutHome from '../components/AboutHome'
 import ContactHome from '../components/ContactHome'
 import FooterHome from '../components/FooterHome'
-import LoaderHome from '../components/LoaderHome'
 import Carousel from '../components/Carousel'
 import RegModal from '../components/RegModal'
 import MackerSpace from '../components/MackerSpace'
@@ -47,7 +46,6 @@ export default {
       AboutHome,
       ContactHome,
       FooterHome,
-      LoaderHome,
       Carousel,
       RegModal,
       MackerSpace,
@@ -58,7 +56,6 @@ export default {
     return {
       showModalR:false,
       showModalS:false,
-      loading:false,
     }
   },
  
@@ -87,15 +84,6 @@ export default {
 
 
 <style>
-.cancelbtn{
-    top:0;
-    right: 0;
-    float: right;
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    cursor: pointer;
-}
 .c_modal {
   position: fixed;
   top: 0;

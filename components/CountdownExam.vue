@@ -1,7 +1,8 @@
 <template>
 <div>
-    <div v-if="onlyminutes">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
-    
+    <div :class="{ redalart: isRedAlart }" v-if="onlyminutes">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
+    <div v-else>{{ days | twoDigits }} days : {{ hours | twoDigits }} Hours
+        : {{ minutes | twoDigits }} Minutes : {{ seconds | twoDigits}} Seconds</div>
 </div>
 </template>
 <script>
@@ -24,6 +25,7 @@ export default {
             now: Math.trunc((new Date()).getTime() / 1000),
             date: null,
             diff: 0,
+            isRedAlart: false,
         }
     },
    created() {
@@ -58,9 +60,12 @@ export default {
             this.diff = this.date - this.now;
             if(this.diff <= 0 || this.stop){
                 this.diff = 0;
+                this.$emit('finished', this.onlyminutes)
                 // Remove interval
-                console.log('ok')
                 clearInterval(interval);
+            }
+            else if(this.diff < 120 && this.isRedAlart == false){
+                this.isRedAlart = true
             }
         }
     },
@@ -77,3 +82,9 @@ export default {
     }
 }
 </script>
+
+<style>
+ .redalart{
+     color: red;
+ }
+</style>
