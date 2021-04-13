@@ -100,7 +100,7 @@ export default {
             });
     
             if(res && res!=null && res.user!=null){
-                this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Registration for STEM Olympiad 2021 has been successful. Thanks!',duration: 15000, type:'success' })
+                this.$notify({ group: 'all', title:"SUCCESS!", text: 'Dear Participant, your registration for STEM OLYMPIAD FOR GIRLS organized by U.S. Embassy & RoboLab has been successful.Thank you.',duration: 10000, type:'success' })
                 this.sendMail(this.form.email)
                 this.$router.push('/')
             }
