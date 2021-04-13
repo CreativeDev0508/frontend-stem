@@ -1,8 +1,5 @@
 <template>
 <div>
- 
-   <LoaderHome v-show="loading" ></LoaderHome>
-
     <HeaderHome @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
    <Carousel></Carousel>
    <AboutHome></AboutHome>
