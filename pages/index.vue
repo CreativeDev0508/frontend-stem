@@ -54,10 +54,10 @@ export default {
       showModalS:false,
     }
   },
- async asyncData({$strapi}) {
-    await $strapi.fetchUser()
-    console.log($strapi.user)
-  },
+  async created(){
+    await this.$strapi.fetchUser()
+    console.log(this.$strapi.user)
+  }
 }
 </script>
 
