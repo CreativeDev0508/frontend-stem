@@ -1769,7 +1769,7 @@
   dependencies:
     http-proxy-middleware "^1.0.6"
 
-"@nuxtjs/strapi@^0.3.0":
+"@nuxtjs/strapi@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-0.3.1.tgz#4a675e3a6daf9189d9118c5784dac02ec72fd831"
   integrity sha512-fLOXcwDR3dXPO8NcTUpjHPumsUQHIj4S7vYX1TCsIj4aS6uZeKdjkC41H6o7NHoMC6cci7qRV3TtgJJVw/NfuA==
