@@ -1,11 +1,10 @@
 
-export const quesQuery=`
-query quesQuery {
-    questions{
+export function quesQuery(cat){
+  return `query ques{
+    questions(where:{Category:"${cat}"}){
       id
       quesid
       Question
-      Answer
       OptionA
       OptionB
       OptionC
@@ -14,7 +13,41 @@ query quesQuery {
         id
         url
       }
+      Answer
     }
   }
-`
+` 
+} 
 
+
+
+
+
+export const results=`
+query quesQuery {
+  questions{
+    id
+    quesid
+    Question
+    Answer
+    OptionA
+    OptionB
+    OptionC
+    OptionD
+    Image{
+      id
+      url
+    }
+  }
+}
+` 
+export const getcontrols=`
+query conf{
+  controls{
+    GoLive
+    LiveURL
+    Platform
+    Height
+    Width
+  }
+}`

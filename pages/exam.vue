@@ -1,9 +1,5 @@
 <template>
 <div>
-  <div v-if="!$strapi.user">
-
-  </div>
-  <div v-else>
   <Pageheader/>
    <form id="regForm" action="" class="quizeform">
      <div v-if="loading" class="loading"></div>
@@ -16,21 +12,20 @@
               </div>
               <div v-for="val in o_values" :key="val">
               <label class="c_container">{{questions[c_index]['Option'+val]}}
-                <input type="checkbox" class="checkb" :checked="answer[questions[c_index].id] == val"  :value="val" @click="selectOpt($event,questions[c_index].id,val)">
+                <input type="checkbox" class="checkb" :checked="answer[questions[c_index].quesid] == val"  :value="val" @click="selectOpt($event,questions[c_index].quesid,val)">
                 <span class="checkmark"></span>
               </label>
               </div>
             </div>
             <div style="overflow:auto;">
               <div style="float:right;">
-                <button type="button" id="prevBtn" class="btn" @click="next(c_index-1)">Previous</button>
-                <button type="button" v-if="questions.length>c_index+1" id="nextBtn" class="btn" @click="next(c_index+1)">Next</button>
-                <button type="button" v-else id="nextBtn" class="btn" @click="SubmitHandller">Submit</button>
+                <button type="button" class="btn" @click="next(c_index-1)">Previous</button>
+                <button type="button" v-if="questions.length>c_index+1" class="btn" @click="next(c_index+1)">Next</button>
+                <button type="button" v-else class="btn" @click="SubmitHandller">Submit</button>
               </div>
           </div>
       </div>     
    </form>
-   </div>
   </div>
 </template>
 
@@ -52,6 +47,9 @@ export default {
        answer:{},
        updated:0,
        pivt:0,
+       Fullname:this.$strapi.user.Fullname,
+       Category:this.getCat(this.$strapi.user.Category.replace(/\s+/g, '').toLowerCase()),
+       Uid:this.$strapi.user.id
     }
  },
  mounted(){
@@ -67,7 +65,7 @@ export default {
   
  async asyncData({$strapi}) {
     const questions = await $strapi.graphql({
-      query:quesQuery
+      query:quesQuery('catA')
     })
     console.log(questions)
     return questions
@@ -90,7 +88,7 @@ export default {
         })
       }
       else{
-        this.answer[ques]=''
+        this.answer[ques.toString()]=''
         this.updated ++
       }
     },
@@ -98,7 +96,7 @@ export default {
       let  ca =0
       for(const key in this.answer){
         let uans = this.answer[key]
-        let oans = this.questions.find(a=> a.id == key).Answer
+        let oans = this.questions.find(a=> a.quesid == key).Answer
         if(uans == oans){
           ca++
         }
@@ -106,9 +104,20 @@ export default {
       console.log(ca)
       return ca
     },
+    getCat(cat){
+      switch(cat){
+        case 'class8-10':
+          return 'catA'
+        case 'class11-12':
+          return 'catB' 
+        case 'undergraduate':
+          return 'catC'  
+      }
+    },
     saveRes:async function(id){
       this.isSubmitting=1;
-      let resp = await this.$strapi.$results.update(id,{Mark:this.calcRes(),Result:{Answers:this.answer}})
+      console.log(this.$strapi.user)
+      let resp = await this.$strapi.$results.create({Uid:this.Uid,Fullname:this.Fullname,Category:this.Category,Mark:this.calcRes(),Result:{Answers:this.answer}})
       this.isSubmitting=0;
     },
     SubmitHandller(){
@@ -118,7 +127,6 @@ export default {
    next(quesno){
       console.log(quesno)
       this.c_index = quesno
-      this.saveRes(123)
     },
   },
   middleware({$strapi,redirect}){

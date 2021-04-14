@@ -83,7 +83,7 @@ export default {
             pwdid:this.generatepwdid(4,this.form.password)
           }).catch((err) =>{
               this.error=true
-               this.$notify({ group: 'all', title:"Failed!", text:err ,duration: 5000, type:'error' })
+               this.$notify({ group: 'all', title:"Failed!", text:err + " Please try again." ,duration: 5000, type:'error' })
             });
     
             if(res && res!=null && res.user!=null){

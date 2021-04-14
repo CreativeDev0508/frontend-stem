@@ -32,8 +32,11 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" v-if="!$strapi.user" @click="$emit('openSign')" style="cursor:pointer;">Sign In</a>
+                        <a v-if="!$strapi.user" @click="$emit('openSign')" style="cursor:pointer;">Sign In</a>
                         <a v-else @click="$strapi.logout()" style="cursor:pointer;">Signout</a>
+                      </li>
+                      <li v-if="isLive" class="nav-item">
+                        <a @click="$emit('openLive')" style="cursor:pointer;"><img src="../assets/images/live.gif" height="11px" style="padding:0px 3px 2px 0px;">LIVE</a>
                       </li>
                     </ul>
                   </div>
@@ -93,6 +96,11 @@
         type: Number,
         default: 1200
       },
+      isLive:{
+        type:Boolean,
+        default:false
+      },
+      
     },
     data() {
       return {
