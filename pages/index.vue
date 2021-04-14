@@ -1,11 +1,11 @@
 <template>
 <div>
-    <HeaderHome @openLive="liveFrame=true" :isLive="isLive" @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
-    <live-page v-if="liveFrame" :url="LiveURL" @closeLive="liveFrame = false" :height="height" :width="width"></live-page>
+    <HeaderHome @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
    <Carousel></Carousel>
    <AboutHome></AboutHome>
     <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
+
    <RegModal v-if="showModalR" @closeRmodal='showModalR=false'></RegModal>
   
   <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
@@ -13,6 +13,7 @@
 <ContactHome></ContactHome>
 
 <FooterHome></FooterHome>
+
 </div>
 </template>
 
@@ -35,8 +36,6 @@ import Carousel from '../components/Carousel'
 import RegModal from '../components/RegModal'
 import MackerSpace from '../components/MackerSpace'
 import LoginHome from '../components/LoginHome'
-import LivePage from '../components/LivePage.vue'
-import {getcontrols} from '../graphql/query'
 export default {
   components:{
       HeaderHome,
@@ -48,32 +47,12 @@ export default {
       RegModal,
       MackerSpace,
       LoginHome,
-      LivePage,
   },
-
   data() {
     return {
       showModalR:false,
       showModalS:false,
-      liveFrame:false,
-      ctl:null,
-      LiveURL:"",
-      isLive:false,
-      platform:'youtube',
-      height:0,
-      width:0,
     }
-  }, 
-  async fetch(){
-    this.ctl = await this.$strapi.graphql({
-      query:getcontrols
-    })
-    this.LiveURL = this.ctl.controls[0].LiveURL
-    this.isLive = this.ctl.controls[0].GoLive
-    this.liveFrame = this.ctl.controls[0].GoLive
-    this.platform = this.ctl.controls[0].Platform
-    this.height =this.ctl.controls[0].Height
-    this.width =this.ctl.controls[0].Width
   },
  
 }
@@ -101,7 +80,6 @@ export default {
 
 
 <style>
-
 .c_modal {
   position: fixed;
   top: 0;
