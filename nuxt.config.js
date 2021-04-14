@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: {
     color: 'blue',
-    height: '5px'
+    height: '3px'
   },
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
@@ -52,7 +52,7 @@ export default {
 
   ],
   strapi: {
-    entities: ['questions','students','results','messages']
+    entities: ['questions','students','results','messages'],
   },
   axios: {
     // extra config e.g
