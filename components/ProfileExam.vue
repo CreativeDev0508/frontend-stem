@@ -49,6 +49,7 @@ export default {
     },
     computed:{
         user({$strapi}){
+            console.log($strapi.user)
             return $strapi.user.Fullname
         }
     },
