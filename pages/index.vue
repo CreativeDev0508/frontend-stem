@@ -6,7 +6,6 @@
    <AboutHome></AboutHome>
     <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
-
    <RegModal v-if="showModalR" @closeRmodal='showModalR=false'></RegModal>
   
   <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
