@@ -2,9 +2,7 @@
   <!-- <div oncontextmenu="return false"> -->
     <div>
     <Nuxt />
-    <ClientOnly>
-        <notifications position="top center" group="all" class="notify"/>
-    </ClientOnly>
+    <notifications position="top center" group="all" class="notify"/>
   </div>
 
 </template>

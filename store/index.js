@@ -10,7 +10,7 @@ export const state = () => ({
   
   export const actions = {
     async nuxtServerInit({ commit }, { $strapi }) {
-      const user = await $strapi.fetchUser()
+    const user = await $strapi.fetchUser()
     commit('SET_USER', user)
   }
 }

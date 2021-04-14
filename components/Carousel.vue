@@ -2,14 +2,12 @@
   <div class="c_warp">
       <h2> Excellency Has </h2><br>
       <h1> <strong>No Set Gender</strong></h1>
-    <client-only>
       <slick :options="slickOptions">
         <div v-for="i in 8" :key="i" class="img-wrapper">
           <img :src="require(`~/assets/images/sliders/${i}.jpg`)" />
           <i><b>{{bio[Number(i-1)][0]}}</b>{{bio[Number(i-1)][1]}}</i>
         </div>
       </slick>
-    </client-only>
   </div>
 </template>
 
