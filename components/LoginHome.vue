@@ -47,6 +47,7 @@ export default {
           identifier: this.identifier,
           password: this.password,
         })
+        this.$strapi.setUser(user)
         console.log(user)
         if (user !== null) {
           this.error = ''
