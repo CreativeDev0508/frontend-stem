@@ -48,8 +48,8 @@ export default {
         }
     },
     computed:{
-        user(){
-            return this.$strapi.user.Fullname
+        user({$strapi}){
+            return $strapi.user.Fullname
         }
     },
 }
