@@ -50,7 +50,7 @@ export default {
         console.log(user)
         if (user !== null) {
           this.error = ''
-          localStorage.setItem('user',user)
+          localStorage.setItem('user',JSON.stringify(user))
           this.$nuxt.$router.push('/profile')
         }
       } catch (error) {
