@@ -3,7 +3,7 @@
     <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @startLoader="loading=true" @stopLoader="loading=false"></LoginHome>
     <div v-else class="parent">
         <div class="child">
-            <div v-if="!$strapi.user">
+            <div v-if="!isUser">
                <h4> Hay There, Stranger !</h4>
                <button class="main-btn" @click="showModalS=true">Sign In</button>
             </div>
@@ -49,7 +49,11 @@ export default {
     },
     computed:{
         user({$strapi}){
+            console.log($strapi.user,"from profile")
             return $strapi.user.Fullname
+        },
+        isUser(){
+            return $strapi.user
         }
     },
 }

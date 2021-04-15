@@ -1,7 +1,7 @@
 <template>
 <div>
     <HeaderHome @openLive="liveFrame=true" :isLive="isLive" @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
-    <live-page v-if="liveFrame" :url="LiveURL" @closeLive="liveFrame = false" :height="height" :width="width"></live-page>
+    <live-page v-if="liveFrame && isLive" :url="LiveURL" @closeLive="liveFrame = false" :height="height" :width="width"></live-page>
    <Carousel></Carousel>
    <AboutHome></AboutHome>
     <MackerSpace></MackerSpace>
@@ -55,8 +55,7 @@ export default {
     return {
       showModalR:false,
       showModalS:false,
-      liveFrame:false,
-      ctl:null,
+      liveFrame:true,
       LiveURL:"",
       isLive:false,
       platform:'youtube',
@@ -64,38 +63,21 @@ export default {
       width:0,
     }
   }, 
-  async fetch(){
-    this.ctl = await this.$strapi.graphql({
+  async mounted(){
+    let ctl = await this.$strapi.graphql({
       query:getcontrols
     })
-    this.LiveURL = this.ctl.controls[0].LiveURL
-    this.isLive = this.ctl.controls[0].GoLive
-    this.liveFrame = this.ctl.controls[0].GoLive
-    this.platform = this.ctl.controls[0].Platform
-    this.height =this.ctl.controls[0].Height
-    this.width =this.ctl.controls[0].Width
+    console.log(ctl)
+    this.LiveURL = ctl.controls[0].LiveURL
+    this.isLive = ctl.controls[0].GoLive
+    this.platform = ctl.controls[0].Platform
+    this.height =ctl.controls[0].Height
+    this.width =ctl.controls[0].Width
+    console.log(this.$strapi.user, "from main")
   },
- 
+  
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
