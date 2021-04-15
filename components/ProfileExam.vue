@@ -1,6 +1,6 @@
 <template>
 <div><ClientOnly>
-    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
+    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @logedin="showModalS=false"></LoginHome>
     <div v-else class="parent">
         <div class="child">
             <div v-if="!$strapi.user">
