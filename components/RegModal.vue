@@ -87,6 +87,7 @@ export default {
             });
     
             if(res && res!=null && res.user!=null){
+                localStorage.setItem('user',JSON.stringify(this.$strapi.user))
                 this.$notify({ group: 'all', title:"SUCCESS!", text: 'Dear Participant, your registration for STEM OLYMPIAD FOR GIRLS organized by U.S. Embassy & RoboLab has been successful.Thank you.',duration: 10000, type:'success' })
                  this.$emit('closeRmodal')
                  this.sendMail(this.form.email)
