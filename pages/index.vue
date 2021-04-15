@@ -73,29 +73,10 @@ export default {
     this.platform = ctl.controls[0].Platform
     this.height =ctl.controls[0].Height
     this.width =ctl.controls[0].Width
-    
   },
   
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
