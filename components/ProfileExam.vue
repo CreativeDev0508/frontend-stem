@@ -1,11 +1,13 @@
 <template>
     <div>
+        <ClientOnly>
         <div v-if="$strapi.user">
             Hello loged in!
         </div>
         <div v-else>
             lOGEDED IN FUNCTION
         </div> 
+        </ClientOnly>
     </div>
 
 </template>
