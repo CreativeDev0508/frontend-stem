@@ -9,11 +9,6 @@
 
 </template>
 
-<script>
-export default {
-  middleware:'authuser'
-}
-</script>
 
 <style>
  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');

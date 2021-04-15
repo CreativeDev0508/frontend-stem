@@ -1,11 +1,11 @@
 <template>
 <div>
-    <HeaderHome @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
+    <HeaderHome @openLive="liveFrame=true" :isLive="isLive" @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
+    <live-page v-if="liveFrame && isLive" :url="LiveURL" @closeLive="liveFrame = false" :height="height" :width="width"></live-page>
    <Carousel></Carousel>
    <AboutHome></AboutHome>
     <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
-
    <RegModal v-if="showModalR" @closeRmodal='showModalR=false'></RegModal>
   
   <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
@@ -13,7 +13,6 @@
 <ContactHome></ContactHome>
 
 <FooterHome></FooterHome>
-
 </div>
 </template>
 
@@ -36,6 +35,8 @@ import Carousel from '../components/Carousel'
 import RegModal from '../components/RegModal'
 import MackerSpace from '../components/MackerSpace'
 import LoginHome from '../components/LoginHome'
+import LivePage from '../components/LivePage.vue'
+import {getcontrols} from '../graphql/query'
 export default {
   components:{
       HeaderHome,
@@ -47,13 +48,28 @@ export default {
       RegModal,
       MackerSpace,
       LoginHome,
+      LivePage,
   },
+
   data() {
     return {
       showModalR:false,
       showModalS:false,
+      liveFrame:true,
     }
-  },
+  }, 
+  async asyncData({ $strapi }){
+    let ctl = await $strapi.graphql({
+      query:getcontrols
+    })
+    var LiveURL = ctl.controls[0].LiveURL
+    let isLive = ctl.controls[0].GoLive
+    let platform = ctl.controls[0].Platform
+    let height =ctl.controls[0].Height
+    let width =ctl.controls[0].Width
+    return {LiveURL,isLive,platform,height,width}
+  }
+ 
 }
 </script>
 
@@ -79,6 +95,7 @@ export default {
 
 
 <style>
+
 .c_modal {
   position: fixed;
   top: 0;
