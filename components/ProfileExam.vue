@@ -16,10 +16,10 @@
                 </div>
                 <div v-else>
                     <h4>Welcome ! {{$strapi.user.Fullname}}</h4><br>
-                    <button class="main-btn" v-if="isExamAvilable">Start Exam !</button>
+                    <button class="main-btn" v-if="isCounok && isExamAvilable">Start Exam !</button>
                     <div v-else>
                         <h3>The Exam Will Start In</h3>
-                        <countdown-exam @finished="isExamAvilable=true"  class="main-btn" style="cursor: not-allowed;" end="Apr 16 2021 15:00:00" :onlyminutes="false"></countdown-exam>
+                        <countdown-exam @finished="isCounok=true"  class="main-btn" style="cursor: not-allowed;" end="Apr 16 2021 15:00:00" :onlyminutes="false"></countdown-exam>
                     </div>
                 </div>
             </div>
@@ -43,6 +43,7 @@ export default {
     data(){
         return{
             isExamAvilable:false,
+            isCounok:false,
             isResultAvilable:false,
             position:'',
             showModalS:false,
@@ -50,6 +51,13 @@ export default {
             username:''
         }
     },
+     async fetch({$strapi,redirect}){
+        let ctl = await $strapi.graphql({
+          query:getcontrols
+        })
+        this.isExamAvilable = ctl.controls[0].StratExam
+        this.isResultAvilable = ctl.controls[0].PublishResult
+      },
 }
 </script>
 <style scoped>

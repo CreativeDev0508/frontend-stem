@@ -1,23 +1,23 @@
 
-export function quesQuery(cat){
-  return `query ques{
-    questions(where:{Category:"${cat}"}){
-      id
-      quesid
-      Question
-      OptionA
-      OptionB
-      OptionC
-      OptionD
-      Image{
+export const quesQuery=
+    `query ques{
+      questions{
         id
-        url
+        quesid
+        Question
+        OptionA
+        OptionB
+        OptionC
+        OptionD
+        Image{
+          id
+          url
+        }
+        Category
+        Answer
       }
-      Answer
     }
-  }
 ` 
-} 
 
 
 
@@ -47,6 +47,8 @@ query conf{
     GoLive
     LiveURL
     Platform
+    StratExam
+    PublishResult
     Height
     Width
   }

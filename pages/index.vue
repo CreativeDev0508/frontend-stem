@@ -67,7 +67,6 @@ export default {
     let ctl = await this.$strapi.graphql({
       query:getcontrols
     })
-    console.log(ctl)
     this.LiveURL = ctl.controls[0].LiveURL
     this.isLive = ctl.controls[0].GoLive
     this.platform = ctl.controls[0].Platform

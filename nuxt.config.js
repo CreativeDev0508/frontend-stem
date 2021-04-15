@@ -6,6 +6,7 @@ export default {
   },
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+    //strapiBaseUri: "https://stembackend.herokuapp.com" 
   },
   
   head: {
