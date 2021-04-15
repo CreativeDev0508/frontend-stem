@@ -1,9 +1,9 @@
 <template>
 <div>
-    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @startLoader="loading=true" @stopLoader="loading=false"></LoginHome>
+    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false'></LoginHome>
     <div v-else class="parent">
         <div class="child">
-            <div v-if="!$strapi.user">
+            <div v-if="!this.$strapi.user">
                <h4> Hay There, Stranger !</h4>
                <button class="main-btn" @click="showModalS=true">Sign In</button>
             </div>
