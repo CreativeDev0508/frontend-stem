@@ -58,8 +58,8 @@ export default {
       liveFrame:true,
     }
   }, 
-  async asyncData({ $strapi }){
-    let ctl = await $strapi.graphql({
+  async mounted(){
+    let ctl = await this.$strapi.graphql({
       query:getcontrols
     })
     var LiveURL = ctl.controls[0].LiveURL
@@ -67,6 +67,7 @@ export default {
     let platform = ctl.controls[0].Platform
     let height =ctl.controls[0].Height
     let width =ctl.controls[0].Width
+    console.log(ctl)
     return {LiveURL,isLive,platform,height,width}
   }
  
