@@ -33,7 +33,7 @@
                       </li>
                       <li class="nav-item">
                         <a v-if="!$strapi.user" @click="$emit('openSign')" style="cursor:pointer;">Sign In</a>
-                        <a v-else @click="$strapi.logout()" style="cursor:pointer;">Signout</a>
+                        <a v-else @click="logout" style="cursor:pointer;">Signout</a>
                       </li>
                       <li v-if="isLive" class="nav-item">
                         <a @click="$emit('openLive')" style="cursor:pointer;"><img src="../assets/images/live.gif" height="11px" style="padding:0px 3px 2px 0px;">LIVE</a>
@@ -123,6 +123,10 @@
           this.timeoutSpeed = this.speed
           this.animate = setTimeout(this.type, this.timeoutSpeed)
         }
+      },
+      logout(){
+        this.$strapi.logout()
+        localStorage.setItem('user',null)
       },
       type() {
         // if typing...
