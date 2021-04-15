@@ -129,12 +129,7 @@ export default {
       this.c_index = quesno
     },
   },
-  middleware({$strapi,redirect}){
-    if(!$strapi.user){
-      redirect('/')
-    }
-  }
-  ,
+  middleware:'authenticated',
 }
 </script>
 
