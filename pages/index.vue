@@ -54,10 +54,6 @@ export default {
       showModalS:false,
     }
   },
-  async created(){
-    await this.$strapi.fetchUser()
-    console.log(this.$strapi.user)
-  }
 }
 </script>
 
