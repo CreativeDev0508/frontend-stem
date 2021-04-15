@@ -74,8 +74,8 @@ export default {
     this.height =ctl.controls[0].Height
     this.width =ctl.controls[0].Width
     
-  }
- 
+  },
+  
 }
 </script>
 

@@ -34,6 +34,7 @@ export default {
    { src:'@/plugins/aos.js', mode: 'client'},
    { src: '~plugins/notify.client', mode: 'client' },
    { src: '~/plugins/slick', mode: 'client' },
+   '~/plugins/init.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

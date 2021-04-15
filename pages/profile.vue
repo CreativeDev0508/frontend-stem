@@ -7,7 +7,8 @@ import ProfileExam from '../components/ProfileExam'
 export default {
     components:{
         ProfileExam
-    }
+    },
+    //middleware:'authenticated',
 }
 </script>
 
