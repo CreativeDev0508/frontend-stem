@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: {
     color: 'blue',
-    height: '5px'
+    height: '3px'
   },
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
@@ -33,8 +33,8 @@ export default {
   plugins: [
    { src:'@/plugins/aos.js', mode: 'client'},
    { src: '~plugins/notify.client', mode: 'client' },
-   { src: '~plugins/notify.server', mode: 'server' },
    { src: '~/plugins/slick', mode: 'client' },
+   '~/plugins/init.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,7 +52,7 @@ export default {
 
   ],
   strapi: {
-    entities: ['questions','students','results','messages']
+    entities: ['questions','students','results','messages'],
   },
   axios: {
     // extra config e.g
@@ -69,5 +69,12 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    
+  },
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
   }
 }

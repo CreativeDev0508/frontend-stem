@@ -35,7 +35,7 @@ export default {
       identifier: '',
       password: '',
       error: '',
-      loading:false
+      loading:false,
     }
   },
   methods: {
@@ -47,19 +47,19 @@ export default {
           identifier: this.identifier,
           password: this.password,
         })
-        this.$strapi.setUser(user)
         console.log(user)
         if (user !== null) {
           this.error = ''
+          localStorage.setItem('user',JSON.stringify(this.$strapi.user))
           this.$nuxt.$router.push('/profile')
         }
       } catch (error) {
         this.error = 'Error in login credentials'
         this.$notify({ group: 'all', title:"Failed!", text:error ,duration: 5000, type:'error' })
       }
+      this.$emit('logedin')
       this.loading=false
     },
   },
-  middleware: 'authenticated',
 }
 </script>

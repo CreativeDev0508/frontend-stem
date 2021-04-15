@@ -1,5 +1,6 @@
-export default function ({ $strapi, redirect }) {
-    if ($strapi.user) {
-      redirect('/profile')
+export default function({ $strapi, redirect,route }) {
+    if(!$strapi.user){ 
+      redirect('/')
     }
   }
+  

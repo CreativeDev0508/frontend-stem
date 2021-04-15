@@ -75,6 +75,7 @@ export default {
      localStorage.setItem('ansState',JSON.stringify(this.answer))
    }
  },
+  middleware:'authenticated',
   methods:{
     selectOpt(e,ques,ans){
       let checkboxs = document.getElementsByClassName('checkb')
@@ -129,12 +130,6 @@ export default {
       this.c_index = quesno
     },
   },
-  middleware({$strapi,redirect}){
-    if(!$strapi.user){
-      redirect('/')
-    }
-  }
-  ,
 }
 </script>
 

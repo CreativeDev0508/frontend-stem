@@ -1,6 +1,6 @@
 <template>
-<div>
-    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @startLoader="loading=true" @stopLoader="loading=false"></LoginHome>
+<div><ClientOnly>
+    <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @logedin="showModalS=false"></LoginHome>
     <div v-else class="parent">
         <div class="child">
             <div v-if="!isUser">
@@ -9,13 +9,13 @@
             </div>
             <div v-else>
                 <div v-if="isResultAvilable" class="profilepage">
-                    <h4>congratulations ! {{user}} <br> Position : {{ position }} </h4>
+                    <h4>congratulations ! {{$strapi.user.Fullname}} <br> Position : {{ position }} </h4>
                     <!-- <h4>{{}} Days {{}} Hours {{}} </h4> -->
                     <button class="main-btn">Get Certificate!</button>
                     <button class="main-btn">Result</button>
                 </div>
                 <div v-else>
-                    <h4>Welcome ! {{user}}</h4><br>
+                    <h4>Welcome ! {{$strapi.user.Fullname}}</h4><br>
                     <button class="main-btn" v-if="isExamAvilable">Start Exam !</button>
                     <div v-else>
                         <h3>The Exam Will Start In</h3>
@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+    </ClientOnly>
     </div>
 </template>
 
@@ -45,15 +46,8 @@ export default {
             isResultAvilable:false,
             position:'',
             showModalS:false,
-        }
-    },
-    computed:{
-        user({$strapi}){
-            console.log($strapi.user,"from profile")
-            return $strapi.user.Fullname
-        },
-        isUser(){
-            return $strapi.user
+            logedin:false,
+            username:''
         }
     },
 }

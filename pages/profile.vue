@@ -7,7 +7,7 @@ import ProfileExam from '../components/ProfileExam'
 export default {
     components:{
         ProfileExam
-    }
+    },
 }
 </script>
 

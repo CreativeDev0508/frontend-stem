@@ -9,6 +9,7 @@
 
 </template>
 
+
 <style>
  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
 html {
