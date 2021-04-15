@@ -3,7 +3,7 @@
     <LoginHome v-if="showModalS" @closeSmodal='showModalS=false' @logedin="showModalS=false"></LoginHome>
     <div v-else class="parent">
         <div class="child">
-            <div v-if="!$strapi.user">
+            <div v-if="!isUser">
                <h4> Hay There, Stranger !</h4>
                <button class="main-btn" @click="showModalS=true">Sign In</button>
             </div>
