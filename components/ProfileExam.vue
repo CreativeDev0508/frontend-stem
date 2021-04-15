@@ -9,7 +9,7 @@
             </div>
             <div v-else>
                 <div v-if="isResultAvilable" class="profilepage">
-                    <h4>congratulations ! {{user}} <br> Position : {{ position }} </h4>
+                    <h4>congratulations ! {{username}} <br> Position : {{ position }} </h4>
                     <!-- <h4>{{}} Days {{}} Hours {{}} </h4> -->
                     <button class="main-btn">Get Certificate!</button>
                     <button class="main-btn">Result</button>
@@ -45,20 +45,17 @@ export default {
             isResultAvilable:false,
             position:'',
             showModalS:false,
+            logedin:false,
+            username:''
         }
     },
     computed:{
-        username({$strapi}){
-            console.log("from profile",$strapi.user)
-            return $strapi.user.Fullname
-        },
-        logedin({$strapi}){
-            if($strapi.user){
-                console.log(true)
-                return true
+        setup({$strapi}){
+             if($strapi.user){
+                this.logedin=true
+                this.username= $strapi.user.Fullname
             }
-            return false
-        }
+        },   
     },
 }
 </script>

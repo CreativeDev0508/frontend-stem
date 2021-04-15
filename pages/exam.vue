@@ -75,6 +75,7 @@ export default {
      localStorage.setItem('ansState',JSON.stringify(this.answer))
    }
  },
+  middleware:'authenticated',
   methods:{
     selectOpt(e,ques,ans){
       let checkboxs = document.getElementsByClassName('checkb')
