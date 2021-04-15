@@ -15,7 +15,7 @@
                     <button class="main-btn">Result</button>
                 </div>
                 <div v-else>
-                    <h4>Welcome ! {{user}}</h4><br>
+                    <h4>Welcome ! {{username}}</h4><br>
                     <button class="main-btn" v-if="isExamAvilable">Start Exam !</button>
                     <div v-else>
                         <h3>The Exam Will Start In</h3>
@@ -48,7 +48,7 @@ export default {
         }
     },
     computed:{
-        user({$strapi}){
+        username({$strapi}){
             console.log($strapi.user)
             return $strapi.user.Fullname
         }

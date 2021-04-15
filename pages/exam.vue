@@ -129,7 +129,6 @@ export default {
       this.c_index = quesno
     },
   },
-  middleware:'authenticated',
 }
 </script>
 
