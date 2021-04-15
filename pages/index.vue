@@ -56,23 +56,24 @@ export default {
       showModalR:false,
       showModalS:false,
       liveFrame:true,
-      LiveURL="",
-      isLive=false,
-      platform='youtube',
-      height=0,
-      width=0
+      LiveURL:"",
+      isLive:false,
+      platform:'youtube',
+      height:0,
+      width:0,
     }
   }, 
   async mounted(){
     let ctl = await this.$strapi.graphql({
       query:getcontrols
     })
+    console.log(ctl)
     this.LiveURL = ctl.controls[0].LiveURL
     this.isLive = ctl.controls[0].GoLive
     this.platform = ctl.controls[0].Platform
     this.height =ctl.controls[0].Height
     this.width =ctl.controls[0].Width
-    console.log(ctl)
+    
   }
  
 }
