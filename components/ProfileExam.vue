@@ -3,7 +3,7 @@
         <div v-if="$strapi.user">
             Hello loged in!
         </div>
-        <div v-if="logedin">
+        <div v-else>
             lOGEDED IN FUNCTION
         </div> 
     </div>

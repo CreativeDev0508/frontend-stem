@@ -125,6 +125,7 @@
         }
       },
       logout(){
+        console.log(this.$strapi.user)
         this.$strapi.logout()
         localStorage.setItem('user',null)
       },
