@@ -17,6 +17,10 @@
                 <div v-else>
                     <h4>Welcome ! {{$strapi.user.Fullname}}</h4><br>
                     <nuxt-link class="main-btn" v-if="isCounok && isExamAvilable" to="/platfrom">Start Exam !</nuxt-link>
+                    <div v-else-if="!isExamAvilable ">
+                        <h3>Results will be published soon! </h3>
+                        <div class="main-btn" style="cursor: not-allowed;">Thanks For Your Participation</div>
+                    </div>
                     <div v-else>
                         <h3>The Exam Will Start In</h3>
                         <countdown-exam @finished="isCounok=true"  class="main-btn" style="cursor: not-allowed;" end="Apr 16 2021 16:00:00" :onlyminutes="false"></countdown-exam>
