@@ -33,6 +33,7 @@
 import LoginHome from '../components/LoginHome'
 import CountdownExam from './CountdownExam.vue'
 import DataLoad from './DataLoad.vue'
+import {getcontrols} from '../graphql/query'
 export default {
     components:{
         CountdownExam,
@@ -51,8 +52,8 @@ export default {
             username:''
         }
     },
-     async fetch({$strapi,redirect}){
-        let ctl = await $strapi.graphql({
+     async mounted(){
+        let ctl = await this.$strapi.graphql({
           query:getcontrols
         })
         this.isExamAvilable = ctl.controls[0].StratExam
