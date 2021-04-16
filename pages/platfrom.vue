@@ -1,6 +1,6 @@
 <template>
 <ClientOnly>
-<div>
+<div v-if="questions">
    <div class="examhead ">
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
@@ -39,7 +39,6 @@
  let cat = ''
  let interval = null;
 import DataLoad from '../components/DataLoad.vue'
-import {quesQuery,getcontrols} from '../graphql/query'
 export default {
  components: { DataLoad},
 
@@ -105,6 +104,8 @@ created() {
     },
 
   mounted(){
+
+      console.log(this.questions)
       let state = localStorage.getItem('ansState')
       this.user = JSON.parse(localStorage.getItem('user'))
       if(this.user){
@@ -123,21 +124,20 @@ created() {
          e.preventDefault()
         }
         this.questions = this.questions.filter(function (el) {
-            return el.Category == cat})
-        console.log(this.questions)
+            return el.Category == cat}
+        )
     },
     
-    async asyncData({$strapi}) {
-        const questions = await $strapi.graphql({
-          query:quesQuery
-        })
-        return questions
+    async asyncData({$axios}) {
+        const qus = await $axios.get('/questions')
+        console.log(qus.data)
+        let questions = qus.data
+        return {questions}
       },
-      async fetch({$strapi,redirect}){
-        let ctl = await $strapi.graphql({
-          query:getcontrols
-        })
-        if(!ctl.controls[0].StratExam){
+      async fetch({$axios,redirect}){
+        let ctl = await $axios.get('/controls')
+        console.log(ctl.data)
+        if(!ctl.data[0].StratExam){
           redirect('/')
         }
       },
