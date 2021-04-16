@@ -5,7 +5,7 @@
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
     </div>
-   <form id="regForm" class="quizeform"  v-if="c_index < questions.length" v-bind:key="c_index">
+   <form id="regForm" class="quizeform"  v-if="questions ? c_index < questions.length:false" v-bind:key="c_index">
      <data-load v-if="loading"></data-load>
      <div v-else>
            <h4 class="q_name">Ques: {{c_index+1}}/{{questions.length}}</h4>
@@ -31,6 +31,7 @@
           </div>
       </div>     
    </form>
+   <data-load v-else></data-load>
   </div>
    </ClientOnly>
 </template>
@@ -60,9 +61,10 @@ export default {
        diff: 0,
        end:'Apr 17 2021 15:00:00',
        isRedAlart: false,
+       questions:null,
     }
  },
-created() {
+async created() {
         
         if (!this.end) {
             throw new Error("Missing props 'deadline' or 'end'");
@@ -75,6 +77,17 @@ created() {
         interval = setInterval(() => {
             this.now = Math.trunc((new Date()).getTime() / 1000);
         }, 1000);
+        let ctl = await this.$strapi.graphql({
+          query:getcontrols
+        })
+        let ques = await this.$strapi.graphql({
+          query:quesQuery
+        })
+        if(!ctl.controls[0].StratExam){
+          this.$router.push('/')
+        }
+        this.questions =ques.questions.filter(function (el) {
+            return el.Category == cat})
 
     },
 
@@ -105,6 +118,7 @@ created() {
     },
 
   mounted(){
+        
       let state = localStorage.getItem('ansState')
       this.user = JSON.parse(localStorage.getItem('user'))
       if(this.user){
@@ -122,25 +136,22 @@ created() {
        document.onkeydown = function(e) {
          e.preventDefault()
         }
-        this.questions = this.questions.filter(function (el) {
-            return el.Category == cat})
         console.log(this.questions)
     },
     
-    async asyncData({$strapi}) {
-        const questions = await $strapi.graphql({
-          query:quesQuery
-        })
-        return questions
-      },
-      async fetch({$strapi,redirect}){
-        let ctl = await $strapi.graphql({
-          query:getcontrols
-        })
-        if(!ctl.controls[0].StratExam){
-          redirect('/')
-        }
-      },
+      // async fetch({$strapi,redirect}){
+      //   let ctl = await $strapi.graphql({
+      //     query:getcontrols
+      //   })
+      //   let ques = await $strapi.graphql({
+      //     query:quesQuery
+      //   })
+      //   if(!ctl.controls[0].StratExam){
+      //     redirect('/')
+      //   }
+      //   this.questions = ques.questions
+      //   console.log(this.questions)
+      // },
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
