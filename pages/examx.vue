@@ -66,27 +66,7 @@ async created() {
             return el.Category == cat})
 
     },
-  mounted(){
-        
-      let state = localStorage.getItem('ansState')
-      this.user = JSON.parse(localStorage.getItem('user'))
-      if(this.user){
-        this.Category = this.user.Category.replace(/\s+/g, '').toLowerCase()
-        cat = this.getCat(this.Category)
-        this.getControls
-      }
-      else{
-        this.$router.push('/')
-      }
-      if(state){
-        this.answer = JSON.parse(state)
-        console.log(JSON.parse(state))
-      }
-       document.onkeydown = function(e) {
-         e.preventDefault()
-        }
-        console.log(this.questions)
-    },
+ 
     
       // async fetch({$strapi,redirect}){
       //   let ctl = await $strapi.graphql({
