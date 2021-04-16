@@ -60,7 +60,7 @@
                  <h3 class="sub-title">FRIDAY, APRIL 16, 2021 &#9830; ONLINE EVENT</h3>
                  </div>
                 <div>
-                  <CountdownHome deadline="Apr 16 2021 12:00:00 GMT+0600"></CountdownHome>
+                  <CountdownHome deadline="Apr 16 2021 15:00:00 GMT+6"></CountdownHome>
                 </div>
                 <div class="header-content text-center">
                   <h2 class="header-title">{{displayText.join('')}}</h2>
