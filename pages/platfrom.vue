@@ -90,7 +90,10 @@ async created() {
         //     return el.Category == cat})
 
     },
-
+    async asyncData({$axios}){
+        let controls = await $axios.get('/controls')
+        console.log(controls)
+    },
     computed: {
         seconds() {
             return Math.trunc(this.diff) % 60
