@@ -19,7 +19,7 @@
                     <button class="main-btn" v-if="isCounok && isExamAvilable">Start Exam !</button>
                     <div v-else>
                         <h3>The Exam Will Start In</h3>
-                        <countdown-exam @finished="isCounok=true"  class="main-btn" style="cursor: not-allowed;" end="Apr 16 2021 15:00:00" :onlyminutes="false"></countdown-exam>
+                        <countdown-exam @finished="isCounok=true"  class="main-btn" style="cursor: not-allowed;" end="Apr 16 2021 16:00:00 " :onlyminutes="false"></countdown-exam>
                     </div>
                 </div>
             </div>

@@ -78,10 +78,6 @@ async created() {
             this.now = Math.trunc((new Date()).getTime() / 1000);
         }, 1000);
     },
-    async asyncData({$axios}){
-        let controls = await $axios.get('/controls')
-        console.log(controls)
-    },
     computed: {
         seconds() {
             return Math.trunc(this.diff) % 60
@@ -131,16 +127,15 @@ async created() {
         )
     },
     
-    async asyncData({$axios}) {
+    async asyncData({$axios,redirect}) {
         const qus = await $axios.get('/questions')
-        let questions = qus.data
-        return {questions}
-      },
-      async fetch({$axios,redirect}){
         let ctl = await $axios.get('/controls')
         if(!ctl.data[0].StratExam){
           redirect('/')
+          return
         }
+        let questions = qus.data
+        return {questions}
       },
     watch:{
       updated(){
