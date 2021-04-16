@@ -77,18 +77,6 @@ async created() {
         interval = setInterval(() => {
             this.now = Math.trunc((new Date()).getTime() / 1000);
         }, 1000);
-        let ctl = await this.$strapi.graphql({
-          query:getcontrols
-        })
-        let ques = await this.$strapi.graphql({
-          query:quesQuery
-        })
-        if(!ctl.controls[0].StratExam){
-          this.$router.push('/')
-        }
-        this.questions =ques.questions.filter(function (el) {
-            return el.Category == cat})
-
     },
 
     computed: {
