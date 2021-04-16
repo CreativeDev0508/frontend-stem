@@ -133,14 +133,7 @@ created() {
         })
         return questions
       },
-      async fetch({$strapi,redirect}){
-        let ctl = await $strapi.graphql({
-          query:getcontrols
-        })
-        if(!ctl.controls[0].StratExam){
-          redirect('/')
-        }
-      },
+
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
