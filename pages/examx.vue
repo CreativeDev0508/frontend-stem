@@ -52,21 +52,7 @@ export default {
        questions:null,
     }
  },
-async created() {
-        let ctl = await this.$strapi.graphql({
-          query:getcontrols
-        })
-        let ques = await this.$strapi.graphql({
-          query:quesQuery
-        })
-        if(!ctl.controls[0].StratExam){
-          this.$router.push('/')
-        }
-        this.questions =ques.questions.filter(function (el) {
-            return el.Category == cat})
 
-    },
- 
     
       // async fetch({$strapi,redirect}){
       //   let ctl = await $strapi.graphql({
