@@ -1,6 +1,6 @@
 <template>
 <ClientOnly>
-<div>
+<div v-if="questions">
    <div class="examhead ">
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
@@ -127,13 +127,18 @@ created() {
         console.log(this.questions)
     },
     
-    async fetch({$strapi}) {
+    async asyncData({$strapi,redirect}) {
+        let ctl = await $strapi.graphql({
+          query:getcontrols
+        })
+        if(!ctl.controls[0].StratExam){
+          redirect('/')
+        }
         const questions = await $strapi.graphql({
           query:quesQuery
         })
         return questions
       },
-
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
