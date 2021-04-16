@@ -4,6 +4,8 @@
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
     </div>
+    <ClientOnly>
+    <div>
    <form id="regForm" class="quizeform"  v-if="questions ? c_index < questions.length:false" v-bind:key="c_index">
      <data-load v-if="loading"></data-load>
      <div v-else>
@@ -31,6 +33,7 @@
       </div>     
    </form>
    <data-load v-else></data-load>
+   </div></ClientOnly>
   </div>
 </template>
 
