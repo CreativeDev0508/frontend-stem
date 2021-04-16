@@ -127,7 +127,7 @@ created() {
         console.log(this.questions)
     },
     
-    async asyncData({$strapi}) {
+    async fetch({$strapi}) {
         const questions = await $strapi.graphql({
           query:quesQuery
         })

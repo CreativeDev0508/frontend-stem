@@ -6,7 +6,6 @@ export default {
   },
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
-    //strapiBaseUri: "https://stembackend.herokuapp.com" 
   },
   
   head: {
@@ -54,7 +53,6 @@ export default {
   ],
   strapi: {
     entities: ['questions','students','results','messages'],
-    url:process.env.API_URL || 'https://stembackend.herokuapp.com',
   },
   axios: {
     // extra config e.g
