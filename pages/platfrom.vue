@@ -1,6 +1,6 @@
 <template>
 <ClientOnly>
-<div v-if="questions">
+<div>
    <div class="examhead ">
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
@@ -60,7 +60,6 @@ export default {
        diff: 0,
        end:'Apr 17 2021 15:00:00',
        isRedAlart: false,
-       questions:null
     }
  },
 created() {
@@ -105,17 +104,7 @@ created() {
         clearInterval(interval);
     },
 
-  async mounted(){
-        let ctl = await this.$strapi.graphql({
-          query:getcontrols
-        })
-        if(!ctl.controls[0].StratExam){
-          
-        }
-        const questions = await this.$strapi.graphql({
-          query:quesQuery
-        })
-        this.questions = questions.questions
+  mounted(){
       let state = localStorage.getItem('ansState')
       this.user = JSON.parse(localStorage.getItem('user'))
       if(this.user){
@@ -137,6 +126,21 @@ created() {
             return el.Category == cat})
         console.log(this.questions)
     },
+    
+    async asyncData({$strapi}) {
+        const questions = await $strapi.graphql({
+          query:quesQuery
+        })
+        return questions
+      },
+      async fetch({$strapi,redirect}){
+        let ctl = await $strapi.graphql({
+          query:getcontrols
+        })
+        if(!ctl.controls[0].StratExam){
+          redirect('/')
+        }
+      },
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
