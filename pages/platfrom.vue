@@ -59,7 +59,7 @@ export default {
        now: Math.trunc((new Date()).getTime() / 1000),
        date: null,
        diff: 0,
-       end:'Apr 17 2021 15:00:00',
+       end:'Apr 16 2021 16:30:00',
        isRedAlart: false,
        questions:null,
     }
@@ -152,6 +152,9 @@ async created() {
               else if(this.diff < 120 && this.isRedAlart == false){
                   this.isRedAlart = true
                 }
+              if(this.diff > 1800){
+                this.$router.push('/profile')
+              }
             },
     },
 

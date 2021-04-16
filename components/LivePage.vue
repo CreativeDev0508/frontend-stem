@@ -2,14 +2,15 @@
   <transition name="fade">
     <div class="out">
         <img src="../assets/images/cancel.png" class="cancelbtn" @click="$emit('closeLive')">
-            <iframe class="sec"
-                :width="width" 
-                :height="height" 
-                :src="url+'?autoplay=1'"
-                title="STEM OLYMPIAD LIVE" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>  
-            </iframe>
+        <iframe class="sec" :src="url + '&autoplay=1'"
+         :width="width"
+          :height="height"
+           style="border:none;overflow:hidden"
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
     </div>
   </transition>
 </template>
@@ -44,10 +45,6 @@ export default {
     animation-name: animatetop;
     animation-duration: 0.4s;
     z-index: 16;
-}
-.sec{
-    padding: 5px;
-    border: 2px solid rgb(0, 195, 255);
 }
 .cancelbtn{
   z-index: 999;
