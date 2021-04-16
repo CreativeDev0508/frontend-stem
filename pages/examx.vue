@@ -1,10 +1,5 @@
 <template>
-<ClientOnly>
-<div v-if="questions">
-   <div class="examhead ">
-        <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
-         <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
-    </div>
+<div>
    <form id="regForm" class="quizeform"  v-if="questions ? c_index < questions.length:false" v-bind:key="c_index">
      <data-load v-if="loading"></data-load>
      <div v-else>
@@ -33,13 +28,12 @@
    </form>
    <data-load v-else></data-load>
   </div>
-   </ClientOnly>
 </template>
 
 <script>
  let cat = ''
- let interval = null;
 import DataLoad from '../components/DataLoad.vue'
+import {quesQuery,getcontrols} from '../graphql/query'
 export default {
  components: { DataLoad},
 
@@ -55,124 +49,29 @@ export default {
        pivt:0,
        Category:'',
        user:null,
-       now: Math.trunc((new Date()).getTime() / 1000),
-       date: null,
-       diff: 0,
-       end:'Apr 17 2021 15:00:00',
-       isRedAlart: false,
        questions:null,
     }
  },
-async created() {
-        
-        if (!this.end) {
-            throw new Error("Missing props 'deadline' or 'end'");
-        }
-        let endTime = this.end;
-        this.date = Math.trunc(Date.parse(endTime.replace(/-/g, "/")) / 1000);
-        if (!this.date) {
-            throw new Error("Invalid props value, correct the 'deadline' or 'end'");
-        }
-        interval = setInterval(() => {
-            this.now = Math.trunc((new Date()).getTime() / 1000);
-        }, 1000);
-        // let ctl = await this.$strapi.graphql({
-        //   query:getcontrols
-        // })
-        // let ques = await this.$strapi.graphql({
-        //   query:quesQuery
-        // })
-        // if(!ctl.controls[0].StratExam){
-        //   this.$router.push('/')
-        // }
-        // this.questions =ques.questions.filter(function (el) {
-        //     return el.Category == cat})
 
-    },
-    async asyncData({$axios}){
-        let controls = await $axios.get('/controls')
-        console.log(controls)
-    },
-    computed: {
-        seconds() {
-            return Math.trunc(this.diff) % 60
-        },
-        minutes() {
-            return Math.trunc(this.diff / 60) % 60
-        },
-        hours() {
-            return Math.trunc(this.diff / 60 / 60) % 24
-        },
-        days() {
-            return Math.trunc(this.diff / 60 / 60 / 24)
-        }
-    },
-    filters: {
-        twoDigits(value) {
-            if ( value.toString().length <= 1 ) {
-                return '0'+value.toString()
-            }
-            return value.toString()
-        }
-    },
-    destroyed() {
-        clearInterval(interval);
-    },
-
-  mounted(){
-      let state = localStorage.getItem('ansState')
-      this.user = JSON.parse(localStorage.getItem('user'))
-      if(this.user){
-        this.Category = this.user.Category.replace(/\s+/g, '').toLowerCase()
-        cat = this.getCat(this.Category)
-        this.getControls
-      }
-      else{
-        this.$router.push('/')
-      }
-      if(state){
-        this.answer = JSON.parse(state)
-        console.log(JSON.parse(state))
-      }
-       document.onkeydown = function(e) {
-         e.preventDefault()
-        }
-        this.questions = this.questions.filter(function (el) {
-            return el.Category == cat}
-        )
-    },
     
-    async asyncData({$axios}) {
-        const qus = await $axios.get('/questions')
-        console.log(qus.data)
-        let questions = qus.data
-        return {questions}
-      },
-      async fetch({$axios,redirect}){
-        let ctl = await $axios.get('/controls')
-        console.log(ctl.data)
-        if(!ctl.data[0].StratExam){
-          redirect('/')
-        }
-      },
+      // async fetch({$strapi,redirect}){
+      //   let ctl = await $strapi.graphql({
+      //     query:getcontrols
+      //   })
+      //   let ques = await $strapi.graphql({
+      //     query:quesQuery
+      //   })
+      //   if(!ctl.controls[0].StratExam){
+      //     redirect('/')
+      //   }
+      //   this.questions = ques.questions
+      //   console.log(this.questions)
+      // },
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
-      },
-       now() {
-            this.diff = this.date - this.now;
-              if(this.diff <= 0){
-                  this.diff = 0;
-                  this.saveRes()
-                    // Remove interval
-                  clearInterval(interval);
-              }
-              else if(this.diff < 120 && this.isRedAlart == false){
-                  this.isRedAlart = true
-                }
-            },
+      }
     },
-
 
  // middleware:'authenticated',
   methods:{
@@ -224,7 +123,6 @@ async created() {
 
     saveRes:async function(){
       this.loading=true;
-      let time = 1800 - Number(this.diff)
       let mark = this.calcRes()
       let resp = await this.$strapi.$results.create({
         uid:this.user.id,
@@ -232,7 +130,6 @@ async created() {
         Category:cat,
         Mark:mark,
         Result:{Answers:this.answer},
-        TimeTaken:time
         })
       if(resp && resp!=null){
         this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Answers Has Been Submitted ! Thank you.',duration: 8000, type:'success' })
