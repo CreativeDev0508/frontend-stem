@@ -1,6 +1,5 @@
 <template >
-  <!-- <div oncontextmenu="return false"> -->
-    <div>
+  <div oncontextmenu="return false"> 
     <Nuxt />
     <ClientOnly>
         <notifications position="top center" group="all" class="notify"/>
