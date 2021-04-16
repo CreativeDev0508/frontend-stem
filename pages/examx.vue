@@ -1,9 +1,5 @@
 <template>
 <div>
-   <div class="examhead ">
-        <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
-         <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
-    </div>
    <form id="regForm" class="quizeform"  v-if="questions ? c_index < questions.length:false" v-bind:key="c_index">
      <data-load v-if="loading"></data-load>
      <div v-else>
@@ -36,7 +32,6 @@
 
 <script>
  let cat = ''
- let interval = null;
 import DataLoad from '../components/DataLoad.vue'
 import {quesQuery,getcontrols} from '../graphql/query'
 export default {
@@ -54,27 +49,10 @@ export default {
        pivt:0,
        Category:'',
        user:null,
-       now: Math.trunc((new Date()).getTime() / 1000),
-       date: null,
-       diff: 0,
-       end:'Apr 17 2021 15:00:00',
-       isRedAlart: false,
        questions:null,
     }
  },
 async created() {
-        
-        if (!this.end) {
-            throw new Error("Missing props 'deadline' or 'end'");
-        }
-        let endTime = this.end;
-        this.date = Math.trunc(Date.parse(endTime.replace(/-/g, "/")) / 1000);
-        if (!this.date) {
-            throw new Error("Invalid props value, correct the 'deadline' or 'end'");
-        }
-        interval = setInterval(() => {
-            this.now = Math.trunc((new Date()).getTime() / 1000);
-        }, 1000);
         let ctl = await this.$strapi.graphql({
           query:getcontrols
         })
@@ -88,33 +66,6 @@ async created() {
             return el.Category == cat})
 
     },
-
-    computed: {
-        seconds() {
-            return Math.trunc(this.diff) % 60
-        },
-        minutes() {
-            return Math.trunc(this.diff / 60) % 60
-        },
-        hours() {
-            return Math.trunc(this.diff / 60 / 60) % 24
-        },
-        days() {
-            return Math.trunc(this.diff / 60 / 60 / 24)
-        }
-    },
-    filters: {
-        twoDigits(value) {
-            if ( value.toString().length <= 1 ) {
-                return '0'+value.toString()
-            }
-            return value.toString()
-        }
-    },
-    destroyed() {
-        clearInterval(interval);
-    },
-
   mounted(){
         
       let state = localStorage.getItem('ansState')
@@ -153,21 +104,8 @@ async created() {
     watch:{
       updated(){
         localStorage.setItem('ansState',JSON.stringify(this.answer))
-      },
-       now() {
-            this.diff = this.date - this.now;
-              if(this.diff <= 0){
-                  this.diff = 0;
-                  this.saveRes()
-                    // Remove interval
-                  clearInterval(interval);
-              }
-              else if(this.diff < 120 && this.isRedAlart == false){
-                  this.isRedAlart = true
-                }
-            },
+      }
     },
-
 
  // middleware:'authenticated',
   methods:{
@@ -219,7 +157,6 @@ async created() {
 
     saveRes:async function(){
       this.loading=true;
-      let time = 1800 - Number(this.diff)
       let mark = this.calcRes()
       let resp = await this.$strapi.$results.create({
         uid:this.user.id,
@@ -227,7 +164,6 @@ async created() {
         Category:cat,
         Mark:mark,
         Result:{Answers:this.answer},
-        TimeTaken:time
         })
       if(resp && resp!=null){
         this.$notify({ group: 'all', title:"SUCCESS!", text: 'Your Answers Has Been Submitted ! Thank you.',duration: 8000, type:'success' })
