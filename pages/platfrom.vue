@@ -1,6 +1,5 @@
 <template>
-<ClientOnly>
-<div v-if="questions">
+<div>
    <div class="examhead ">
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
          <div :class="{ redalart: isRedAlart }">{{ minutes | twoDigits }} : {{ seconds | twoDigits}}</div>
@@ -33,7 +32,6 @@
    </form>
    <data-load v-else></data-load>
   </div>
-   </ClientOnly>
 </template>
 
 <script>
@@ -76,18 +74,6 @@ async created() {
         interval = setInterval(() => {
             this.now = Math.trunc((new Date()).getTime() / 1000);
         }, 1000);
-        // let ctl = await this.$strapi.graphql({
-        //   query:getcontrols
-        // })
-        // let ques = await this.$strapi.graphql({
-        //   query:quesQuery
-        // })
-        // if(!ctl.controls[0].StratExam){
-        //   this.$router.push('/')
-        // }
-        // this.questions =ques.questions.filter(function (el) {
-        //     return el.Category == cat})
-
     },
     async asyncData({$axios}){
         let controls = await $axios.get('/controls')
@@ -144,13 +130,11 @@ async created() {
     
     async asyncData({$axios}) {
         const qus = await $axios.get('/questions')
-        console.log(qus.data)
         let questions = qus.data
         return {questions}
       },
       async fetch({$axios,redirect}){
         let ctl = await $axios.get('/controls')
-        console.log(ctl.data)
         if(!ctl.data[0].StratExam){
           redirect('/')
         }
