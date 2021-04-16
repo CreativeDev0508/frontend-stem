@@ -153,7 +153,7 @@ async created() {
                   this.isRedAlart = true
                 }
               if(this.diff > 1800){
-                this.$router.push('/profile')
+                //this.$router.push('/profile')
               }
             },
     },
