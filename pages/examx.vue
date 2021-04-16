@@ -1,5 +1,4 @@
 <template>
-<ClientOnly>
 <div>
    <div class="examhead ">
         <h5 class="catname">{{this.Category.toUpperCase()}}</h5>
@@ -33,7 +32,6 @@
    </form>
    <data-load v-else></data-load>
   </div>
-   </ClientOnly>
 </template>
 
 <script>
