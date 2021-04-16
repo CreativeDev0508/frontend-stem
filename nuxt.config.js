@@ -54,6 +54,7 @@ export default {
   ],
   strapi: {
     entities: ['questions','students','results','messages'],
+    url:process.env.API_URL || 'http://localhost:1337',
   },
   axios: {
     // extra config e.g
