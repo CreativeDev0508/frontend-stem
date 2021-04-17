@@ -3,6 +3,7 @@
     <HeaderHome @openLive="liveFrame=true" :isLive="isLive" @openSign='showModalS = !showModalS' @openReg='showModalR=!showModalR'></HeaderHome>
     <live-page v-if="liveFrame && isLive" :url="LiveURL" @closeLive="liveFrame = false" :height="height" :width="width"></live-page>
    <Carousel></Carousel>
+   <video-tag></video-tag>
    <AboutHome></AboutHome>
     <MackerSpace></MackerSpace>
    <!-- <FeatureHome></FeatureHome> -->
@@ -37,6 +38,7 @@ import MackerSpace from '../components/MackerSpace'
 import LoginHome from '../components/LoginHome'
 import LivePage from '../components/LivePage.vue'
 import {getcontrols} from '../graphql/query'
+import VideoTag from '../components/videoTag.vue'
 export default {
   components:{
       HeaderHome,
@@ -49,6 +51,7 @@ export default {
       MackerSpace,
       LoginHome,
       LivePage,
+    VideoTag,
   },
 
   data() {

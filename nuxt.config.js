@@ -71,10 +71,4 @@ export default {
   build: {
     
   },
-  vue: {
-    config: {
-      productionTip: false,
-      devtools: true
-    }
-  }
 }
