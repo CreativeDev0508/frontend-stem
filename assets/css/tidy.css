@@ -565,16 +565,16 @@ p {
     .header-countdown .single-count-content {
       padding: 0 15px; } }
   .header-countdown .single-count-content .count {
-    font-size: 72px;
+    font-size: 38px;
     font-weight: 600;
     line-height: 60px; }
     @media (max-width: 767px) {
       .header-countdown .single-count-content .count {
-        font-size: 24px;
+        font-size: 20px;
         line-height: 30px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .header-countdown .single-count-content .count {
-        font-size: 36px;
+        font-size: 30px;
         line-height: 40px; } }
   .header-countdown .single-count-content .text {
     font-size: 20px;

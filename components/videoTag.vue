@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <video autoplay loop class="videoclass">
-                     <source src="../assets/videos/video1.mp4">
+                     <source src="../assets/videos/winnersvideo.mp4">
                 </video>
             </div>
         </div>  
