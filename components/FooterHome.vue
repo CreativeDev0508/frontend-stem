@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright text-center">
-                            <p class="text"> Designed and Developed by <a target="_blank" href="http://madvert.tech/" rel="nofollow">MADVERTLABS</a>.</p>
+                            <p class="text"> Designed and Developed by <a target="_blank" href="https://github.com/utshomax" rel="nofollow">UTSAB UTSHO</a>.</p>
                         </div> <!-- copyright -->
                     </div>
                 </div> <!-- row -->
